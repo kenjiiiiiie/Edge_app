@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-public class On_Boarding extends AppCompatActivity implements View.OnClickListener{
+public class ActivityOnboarding extends AppCompatActivity implements View.OnClickListener{
 
     private ViewPager mViewPager;
     private int[] layouts = {R.layout.fragment_onboarding_01, R.layout.fragment_onboarding_02, R.layout.fragment_onboarding_03, R.layout.fragment_onboarding_04};
