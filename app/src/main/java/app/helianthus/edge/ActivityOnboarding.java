@@ -28,7 +28,7 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 
-        mViewPager = findViewById(R.id.viewPager);
+        mViewPager = findViewById(R.id.onboarding_view_pager);
         pageAdapter = new PageAdapter(layouts, this);
         mViewPager.setAdapter(pageAdapter);
 
@@ -61,9 +61,9 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
             }
         });
 
-        btnNext = findViewById(R.id.btnNext);
-        btnSkip = findViewById(R.id.btnSkip);
-        btnFinish = findViewById(R.id.btnFinish);
+        btnNext = findViewById(R.id.onboarding_btn_next);
+        btnSkip = findViewById(R.id.onboarding_btn_skip);
+        btnFinish = findViewById(R.id.onboarding_btn_finish);
         btnNext.setOnClickListener(this);
         btnSkip.setOnClickListener(this);
         btnFinish.setOnClickListener(this);
@@ -97,14 +97,15 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.btnNext:
+            case R.id.onboarding_btn_next:
                 loadNextSlide();
                 break;
 
-            case R.id.btnSkip:
+            case R.id.onboarding_btn_skip:
                 loadHome();
                 break;
-            case R.id.btnFinish:
+
+            case R.id.onboarding_btn_finish:
                 loadHome();
                 break;
         }
