@@ -5,15 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ActivityOnboarding">
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/onboarding_view_pager"
+    
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="?attr/actionBarSize">
+        
+        <com.airbnb.lottie.LottieAnimationView
+            android:layout_width="match_parent"
+            android:layout_height="480dp"
+            />
 
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/onboarding_view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
-    </androidx.viewpager.widget.ViewPager>
+    </FrameLayout>
 
     <View
         android:layout_width="match_parent"

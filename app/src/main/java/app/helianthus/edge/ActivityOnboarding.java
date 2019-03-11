@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
-public class On_Boarding extends AppCompatActivity implements View.OnClickListener{
+public class ActivityOnboarding extends AppCompatActivity implements View.OnClickListener{
 
     private ViewPager mViewPager;
     private int[] layouts = {R.layout.fragment_onboarding_01, R.layout.fragment_onboarding_02, R.layout.fragment_onboarding_03, R.layout.fragment_onboarding_04};
@@ -28,7 +28,7 @@ public class On_Boarding extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
 
-        mViewPager = findViewById(R.id.viewPager);
+        mViewPager = findViewById(R.id.onboarding_view_pager);
         pageAdapter = new PageAdapter(layouts, this);
         mViewPager.setAdapter(pageAdapter);
 
@@ -61,9 +61,9 @@ public class On_Boarding extends AppCompatActivity implements View.OnClickListen
             }
         });
 
-        btnNext = findViewById(R.id.btnNext);
-        btnSkip = findViewById(R.id.btnSkip);
-        btnFinish = findViewById(R.id.btnFinish);
+        btnNext = findViewById(R.id.onboarding_btn_next);
+        btnSkip = findViewById(R.id.onboarding_btn_skip);
+        btnFinish = findViewById(R.id.onboarding_btn_finish);
         btnNext.setOnClickListener(this);
         btnSkip.setOnClickListener(this);
         btnFinish.setOnClickListener(this);
@@ -97,14 +97,15 @@ public class On_Boarding extends AppCompatActivity implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch(v.getId()){
-            case R.id.btnNext:
+            case R.id.onboarding_btn_next:
                 loadNextSlide();
                 break;
 
-            case R.id.btnSkip:
+            case R.id.onboarding_btn_skip:
                 loadHome();
                 break;
-            case R.id.btnFinish:
+
+            case R.id.onboarding_btn_finish:
                 loadHome();
                 break;
         }
