@@ -14,7 +14,8 @@
         <com.airbnb.lottie.LottieAnimationView
             android:layout_width="match_parent"
             android:layout_height="480dp"
-            />
+            app:lottie_autoPlay="false"
+            app:lottie_rawRes="@raw/onboarding_animation"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/onboarding_view_pager"
