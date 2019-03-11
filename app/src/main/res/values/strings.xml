@@ -27,4 +27,7 @@
     <string name="helplines_ppa">Philippine Psychiatric Association</string>
     <string name="home_title_profile">Profile</string>
     <string name="journal_title_change_view">Change view</string>
+    <string name="title_activity_onboarding">ActivityOnboarding</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
 </resources>
