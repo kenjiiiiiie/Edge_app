@@ -30,6 +30,7 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.0.0'
     implementation 'com.makeramen:roundedimageview:2.3.0'
     implementation 'com.novoda:spritz:1.0.0'
+    implementation 'com.xw.repo:bubbleseekbar:3.20-lite'
     implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:3.0.3'
     implementation 'androidx.legacy:legacy-support-v13:1.0.0-beta01'
     testImplementation 'junit:junit:4.12'

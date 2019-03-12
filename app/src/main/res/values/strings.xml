@@ -121,4 +121,12 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="onboarding_001_title">Welcome to Edge!</string>
+    <string name="onboarding_001_desc">An app for raising awareness about stress, anxiety, and depression.</string>
+    <string name="onboarding_002_title">Track what you feel</string>
+    <string name="onboarding_002_desc">Add moods and monitor how you are feeling everyday.</string>
+    <string name="onboarding_003_title">Express yourself more</string>
+    <string name="onboarding_003_desc">You can log your days or simply write your experiences for safekeeping.</string>
+    <string name="onboarding_004_title">Complete tasks</string>
+    <string name="onboarding_004_desc">Accomplish various activities and ease yourself from negative emotions.</string>
 </resources>

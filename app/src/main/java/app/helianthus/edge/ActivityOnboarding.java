@@ -7,7 +7,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.novoda.spritz.Spritz;
+import com.novoda.spritz.SpritzStep;
 import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
+
+import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,6 +30,7 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     private ImageView[] dots;
 
     private Button btnSkip, btnFinish, btnNext;
+    private Spritz spritz;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +41,28 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
         pageAdapter = new PageAdapter(layouts, this);
         mViewPager.setAdapter(pageAdapter);
 
-
         wormDotsIndicator = findViewById(R.id.worm_dot);
         wormDotsIndicator.setViewPager(mViewPager);
+
+        LottieAnimationView lottieAnimationView = findViewById(R.id.onboarding_animation);
+
+        spritz = Spritz.with(lottieAnimationView)
+                .withSteps(
+                    new SpritzStep.Builder()
+                        .withAutoPlayDuration(1000, TimeUnit.MILLISECONDS)
+                        .withSwipeDuration(1000, TimeUnit.MILLISECONDS)
+                        .build(),
+                    new SpritzStep.Builder()
+                        .withSwipeDuration(1000, TimeUnit.MILLISECONDS)
+                        .build(),
+                    new SpritzStep.Builder()
+                        .withSwipeDuration(1000, TimeUnit.MILLISECONDS)
+                        .build(),
+                    new SpritzStep.Builder()
+                        .withSwipeDuration(1000, TimeUnit.MILLISECONDS)
+                        .build()
+                )
+                .build();
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -96,6 +121,19 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
            //dots_layout.addView(dots[i], param);
         }
     }*/
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        spritz.attachTo(mViewPager);
+        spritz.startPendingAnimations();
+    }
+
+    @Override
+    protected void onStop() {
+        spritz.detachFrom(mViewPager);
+        super.onStop();
+    }
 
     @Override
     public void onClick(View v) {

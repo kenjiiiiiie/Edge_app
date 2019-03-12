@@ -13,7 +13,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".ActivityOnboarding"
-            android:label="@string/title_activity_onboarding"></activity>
+            android:label="@string/title_activity_onboarding" />
         <activity
             android:name=".ActivitySplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden"
@@ -25,6 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
+        <activity android:name=".ActivityStress"/>
     </application>
 
 </manifest>
