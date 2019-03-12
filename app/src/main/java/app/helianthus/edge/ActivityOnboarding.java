@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -17,8 +19,9 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     private ViewPager mViewPager;
     private int[] layouts = {R.layout.fragment_onboarding_01, R.layout.fragment_onboarding_02, R.layout.fragment_onboarding_03, R.layout.fragment_onboarding_04};
     private PageAdapter pageAdapter;
+    private WormDotsIndicator wormDotsIndicator;
 
-    private LinearLayout dots_layout;
+    //private LinearLayout dots_layout;
     private ImageView[] dots;
 
     private Button btnSkip, btnFinish, btnNext;
@@ -32,8 +35,9 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
         pageAdapter = new PageAdapter(layouts, this);
         mViewPager.setAdapter(pageAdapter);
 
-        dots_layout = findViewById(R.id .dotsLayout);
-        createDots(0);
+
+        wormDotsIndicator = findViewById(R.id.worm_dot);
+        wormDotsIndicator.setViewPager(mViewPager);
 
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -43,7 +47,6 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onPageSelected(int position) {
-                createDots(position);
                 if(position==layouts.length-1){
                     btnFinish.setVisibility(View.VISIBLE);
                     btnNext.setVisibility(View.INVISIBLE);
@@ -70,7 +73,7 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
 
     }
 
-    private void createDots(int current_position){
+    /*private void createDots(int current_position){
         if(dots_layout != null){
             dots_layout.removeAllViews();
         }
@@ -81,18 +84,18 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
             dots[i] = new ImageView(this);
             if(i == current_position)
             {
-                dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.active_dot));
+               //dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.active_dot));
             }
             else
             {
-                dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.inactive_dot));
+                //dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.inactive_dot));
             }
 
             LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             param.setMargins(6,0,6,0);
-            dots_layout.addView(dots[i], param);
+           //dots_layout.addView(dots[i], param);
         }
-    }
+    }*/
 
     @Override
     public void onClick(View v) {
