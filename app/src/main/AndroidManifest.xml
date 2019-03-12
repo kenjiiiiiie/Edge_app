@@ -15,7 +15,7 @@
             android:name=".ActivityOnboarding"
             android:label="@string/title_activity_onboarding"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivitySplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name">
             <intent-filter>
@@ -24,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivitySplashScreen" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
