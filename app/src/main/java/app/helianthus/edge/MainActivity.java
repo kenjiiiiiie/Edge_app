@@ -3,26 +3,19 @@ package app.helianthus.edge;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
+import android.preference.PreferenceManager;
+import android.view.MenuItem;
+import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.preference.PreferenceManager;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-
 public class MainActivity extends AppCompatActivity {
-
-    View myView;
-
     FragmentManager fragmentManager = getSupportFragmentManager();
     Fragment fragmentHome = new FragmentHome();
     Fragment fragmentJournal = new FragmentJournal();
@@ -47,14 +40,6 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-
-        /* FloatingActionButton myFab = myView.findViewById(R.id.floating_action_button);
-        myFab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ActivitySplashScreen.class);
-                startActivity(intent);
-            }
-        }); */
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
