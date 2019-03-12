@@ -56,11 +56,11 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:dotsColor="@color/colorAccent"
-            app:dotsStrokeColor="@color/colorOnLightSecondary"
-            app:dotsStrokeWidth="2dp"
+            app:dotsStrokeColor="@color/colorOnLightStroke"
+            app:dotsStrokeWidth="1dp"
             android:id="@+id/worm_dot"
             app:dotsSize="8dp"
-            app:dotsSpacing="8dp"
+            app:dotsSpacing="2dp"
             app:dotsCornerRadius="4dp"/>
 
         <com.google.android.material.button.MaterialButton

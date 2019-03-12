@@ -56,7 +56,7 @@ public class FragmentHome extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
 
-        barChart = view.findViewById(R.id.mood_bar_chart);
+        /* barChart = (BarChart) view.findViewById(R.id.mood_bar_chart);
 
         List<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(0f, 30f));
@@ -69,7 +69,7 @@ public class FragmentHome extends Fragment {
 
         BarDataSet set = new BarDataSet(entries, "BarDataSet");
         BarData data = new BarData(set);
-        barChart.setData(data);
+        barChart.setData(data); */
 
         return view;
     }

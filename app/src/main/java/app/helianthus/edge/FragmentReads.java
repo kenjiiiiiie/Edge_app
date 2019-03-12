@@ -2,6 +2,7 @@ package app.helianthus.edge;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,10 +12,15 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
+import com.google.android.material.card.MaterialCardView;
 
 public class FragmentReads extends Fragment {
 
     private FragmentReadsViewModel mViewModel;
+    private LinearLayout cardStress, cardAnxiety, cardDepression;
+    private Intent intent;
 
     public static FragmentReads newInstance() {
         return new FragmentReads();
@@ -23,7 +29,20 @@ public class FragmentReads extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_reads, container, false);
+        View view = inflater.inflate(R.layout.fragment_reads, container, false);
+        cardStress = view.findViewById(R.id.reads_card_stress);
+        cardAnxiety = view.findViewById(R.id.reads_card_anxiety);
+        cardDepression = view.findViewById(R.id.reads_card_depression);
+
+        cardStress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getContext(), ActivityStress.class);
+                startActivity(intent);
+            }
+        });
+
+        return view;
     }
 
     @Override
@@ -32,5 +51,4 @@ public class FragmentReads extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(FragmentReadsViewModel.class);
         // TODO: Use the ViewModel
     }
-
 }

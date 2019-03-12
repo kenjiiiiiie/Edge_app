@@ -5,14 +5,15 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/colorPrimary"
-    tools:context=".FragmentJournal">
+    tools:context=".FragmentHome">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/journal_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:overScrollMode="ifContentScrolls"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,7 +41,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginBottom="16dp">
+                android:layout_marginBottom="12dp"
+                android:clipToPadding="false">
 
                 <TextView
                     android:id="@+id/home_quote_text"
@@ -270,7 +272,7 @@
                 android:layout_marginStart="28dp"
                 android:layout_marginTop="24dp"
                 android:layout_marginEnd="28dp"
-                android:layout_marginBottom="8dp"
+                android:layout_marginBottom="12dp"
                 android:drawableStart="@drawable/ic_minigame_18dp"
                 android:drawablePadding="12dp"
                 android:fontFamily="@font/poppins"
