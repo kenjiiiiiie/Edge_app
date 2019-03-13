@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
@@ -16,6 +17,7 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
@@ -36,6 +38,7 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
+        setTheme(R.style.EdgeLightTheme_Transparency);
 
         mViewPager = findViewById(R.id.onboarding_view_pager);
         pageAdapter = new PageAdapter(layouts, this);
@@ -72,6 +75,7 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
 
             @Override
             public void onPageSelected(int position) {
+
                 if(position==layouts.length-1){
                     btnFinish.setVisibility(View.VISIBLE);
                     btnNext.setVisibility(View.INVISIBLE);
@@ -155,6 +159,7 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     private void loadHome()
     {
         finish();
+        setTheme(R.style.EdgeLightTheme);
     }
 
     private void loadNextSlide()
