@@ -2,11 +2,7 @@ package app.helianthus.edge;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.novoda.spritz.Spritz;
@@ -17,8 +13,6 @@ import java.util.concurrent.TimeUnit;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 
 public class ActivityOnboarding extends AppCompatActivity implements View.OnClickListener{
