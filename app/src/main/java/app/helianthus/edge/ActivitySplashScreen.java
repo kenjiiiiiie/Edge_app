@@ -31,6 +31,6 @@ public class ActivitySplashScreen extends AppCompatActivity {
                     ActivitySplashScreen.this.finish();
                 }
             }
-        }, 1000);
+        }, 2000);
     }
 }
