@@ -28,9 +28,6 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     private PageAdapter pageAdapter;
     private WormDotsIndicator wormDotsIndicator;
 
-    //private LinearLayout dots_layout;
-    private ImageView[] dots;
-
     private Button btnSkip, btnFinish, btnNext;
     private Spritz spritz;
 
@@ -101,30 +98,6 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
         btnFinish.setOnClickListener(this);
 
     }
-
-    /*private void createDots(int current_position){
-        if(dots_layout != null){
-            dots_layout.removeAllViews();
-        }
-
-        dots = new ImageView[layouts.length];
-
-        for(int i = 0; i<layouts.length; i++){
-            dots[i] = new ImageView(this);
-            if(i == current_position)
-            {
-               //dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.active_dot));
-            }
-            else
-            {
-                //dots[i].setImageDrawable(ContextCompat.getDrawable(this, R.drawable.inactive_dot));
-            }
-
-            LinearLayout.LayoutParams param = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            param.setMargins(6,0,6,0);
-           //dots_layout.addView(dots[i], param);
-        }
-    }*/
 
     @Override
     protected void onStart() {

@@ -27,14 +27,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-        boolean previouslyStarted = prefs.getBoolean(getString(R.string.first_launch), false);
-        if (!previouslyStarted) {
-            SharedPreferences.Editor edit = prefs.edit();
-            edit.putBoolean(getString(R.string.first_launch), Boolean.TRUE).apply();
-            MainActivity.this.startActivity(new Intent(MainActivity.this, ActivityOnboarding.class));
-        }
-
         fragmentManager.beginTransaction().add(R.id.main_fragment_container, fragmentHome, "1").commit();
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
