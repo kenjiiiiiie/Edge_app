@@ -23,17 +23,17 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-
             <EditText
                 android:id="@+id/journal_write_edittext"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Write something..."
+                android:layout_height="match_parent"
+                android:hint="@string/journal_write_hint"
                 android:gravity="top"
                 android:background="@android:color/transparent"
                 android:inputType="textCapSentences|textNoSuggestions|textMultiLine"
                 android:fontFamily="@font/poppins"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+                android:importantForAutofill="no" />
 
         </LinearLayout>
 
@@ -42,14 +42,14 @@
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/journal_write_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:gravity="center"
-            app:elevation="4dp"
             app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
             app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
@@ -59,7 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="Journal title"
+                android:text="@string/journal_write_title"
                 android:gravity="center_vertical"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/colorOnLightPrimary"

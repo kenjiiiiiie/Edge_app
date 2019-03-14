@@ -23,11 +23,17 @@ public class ActivityWriteJournal extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.journal_write_toolbar);
         setSupportActionBar(toolbar);
+        toolbar.inflateMenu(R.menu.journal_write_app_bar_menu);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_cancel);
-        toolbar.inflateMenu(R.menu.journal_write_app_bar_menu);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.journal_write_app_bar_menu, menu);
+        return true;
     }
 
     @Override

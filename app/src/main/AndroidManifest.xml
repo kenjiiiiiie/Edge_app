@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/EdgeLightTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ActivityAddMood"></activity>
         <activity
             android:name=".ActivityOnboarding"
             android:label="@string/title_activity_onboarding" />
@@ -38,15 +39,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.helianthus.edge.MainActivity" />
         </activity>
-        <activity android:name=".ActivityWriteJournal"
+        <activity
+            android:name=".ActivityWriteJournal"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:windowSoftInputMode="adjustResize"
-            android:parentActivityName=".MainActivity">
-
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.helianthus.edge.MainActivity" />
-
         </activity>
     </application>
 

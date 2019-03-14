@@ -35,4 +35,7 @@
     <string name="onboarding_003_desc">You can log your days or simply write your experiences for safekeeping.</string>
     <string name="onboarding_004_title">Complete tasks</string>
     <string name="onboarding_004_desc">Accomplish various activities and ease yourself from negative emotions.</string>
+    <string name="journal_write_hint">Write something...</string>
+    <string name="journal_write_title">New journal</string>
+    <string name="home_daily_tasks_more">More tasks</string>
 </resources>
