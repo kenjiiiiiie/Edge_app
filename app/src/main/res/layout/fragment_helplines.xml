@@ -9,7 +9,7 @@
     tools:context=".FragmentHelplines">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/journal_nestedScrollView"
+        android:id="@+id/helplines_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -238,7 +238,7 @@
         app:liftOnScroll="true">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/reads_toolbar"
+            android:id="@+id/helplines_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:contentInsetStart="0dp"

@@ -1,13 +1,11 @@
 package app.helianthus.edge;
 
-import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,9 +31,7 @@ public class ActivityStress extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back);
-
-        setTheme(R.style.EdgeDarkStatusBar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_arrow_back_w);
 
         Bitmap bitmap = BitmapFactory.decodeResource(this.getResources(), R.drawable.img_stress);
         Window window = this.getWindow();

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.Toolbar;
 
 import android.provider.BaseColumns;
 import android.view.LayoutInflater;
@@ -17,7 +18,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 public class FragmentJournal extends Fragment {
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + JournalEntry.TABLE_NAME + " (" +
@@ -35,7 +35,6 @@ public class FragmentJournal extends Fragment {
     }
 
     View view;
-    androidx.appcompat.widget.Toolbar mTopToolbar;
 
     private boolean isChecked = false;
 
@@ -44,7 +43,7 @@ public class FragmentJournal extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_journal, container, false);
 
-        mTopToolbar = view.findViewById(R.id.journal_toolbar);
+        Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
 
         return view;

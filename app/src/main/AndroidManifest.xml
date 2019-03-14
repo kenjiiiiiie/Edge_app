@@ -5,49 +5,40 @@
 
     <application
         android:allowBackup="true"
+        android:configChanges="orientation|screenSize|keyboardHidden"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/EdgeLightTheme"
-        android:configChanges="orientation|screenSize|keyboardHidden"
         tools:ignore="GoogleAppIndexingWarning">
-
+        <activity android:name=".ActivityWriteJournal"></activity>
         <activity
             android:name=".ActivityOnboarding"
             android:label="@string/title_activity_onboarding" />
-
         <activity
             android:name=".ActivitySplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name">
-
             <intent-filter>
-
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-
             </intent-filter>
-
         </activity>
-
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop"
-            android:configChanges="orientation|screenSize|keyboardHidden"/>
-
-        <activity android:name=".ActivityStress"
-            android:parentActivityName="app.helianthus.edge.MainActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ActivityStress"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/EdgeDarkStatusBar">
-
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.helianthus.edge.MainActivity" />
-
         </activity>
-
     </application>
 
 </manifest>
