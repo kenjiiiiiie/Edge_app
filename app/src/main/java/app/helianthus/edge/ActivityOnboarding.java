@@ -1,5 +1,6 @@
 package app.helianthus.edge;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,11 +30,15 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding);
-        setTheme(R.style.EdgeLightTheme_Transparency);
 
         mViewPager = findViewById(R.id.onboarding_view_pager);
         pageAdapter = new PageAdapter(layouts, this);
         mViewPager.setAdapter(pageAdapter);
+
+        View view = findViewById(R.id.onboarding_root);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
+        }
 
         wormDotsIndicator = findViewById(R.id.worm_dot);
         wormDotsIndicator.setViewPager(mViewPager);
@@ -126,7 +131,6 @@ public class ActivityOnboarding extends AppCompatActivity implements View.OnClic
     private void loadHome()
     {
         finish();
-        setTheme(R.style.EdgeLightTheme);
     }
 
     private void loadNextSlide()

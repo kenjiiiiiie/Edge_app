@@ -11,6 +11,9 @@
         <item name="android:navigationBarColor">@color/colorDark</item>
         <item name="colorControlHighlight">@color/colorAccentRipple</item>
         <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/explode</item>
+        <item name="android:windowExitTransition">@transition/explode</item>
     </style>
 
     <style name="BottomNavigation" parent="Widget.Design.BottomNavigationView">
@@ -24,10 +27,6 @@
         <item name="android:layout_marginEnd">16dp</item>
         <item name="cardCornerRadius">8dp</item>
         <item name="cardElevation">2dp</item>
-    </style>
-
-    <style name="ToolbarTheme" parent="Theme.MaterialComponents.Light">
-        <item name="android:fontFamily">@font/poppins_semibold</item>
     </style>
 
 </resources>

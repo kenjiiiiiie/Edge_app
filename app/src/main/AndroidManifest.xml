@@ -10,7 +10,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/EdgeLightTheme"
+        android:configChanges="orientation|screenSize|keyboardHidden"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".ActivityOnboarding"
             android:label="@string/title_activity_onboarding" />
@@ -19,22 +21,33 @@
             android:name=".ActivitySplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name">
+
             <intent-filter>
+
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
+
         </activity>
 
         <activity
             android:name=".MainActivity"
-            android:launchMode="singleTop"/>
+            android:launchMode="singleTop"
+            android:configChanges="orientation|screenSize|keyboardHidden"/>
 
         <activity android:name=".ActivityStress"
-            android:parentActivityName="app.helianthus.edge.MainActivity">
+            android:parentActivityName="app.helianthus.edge.MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/EdgeDarkStatusBar">
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.helianthus.edge.MainActivity" />
+
         </activity>
+
     </application>
 
 </manifest>
