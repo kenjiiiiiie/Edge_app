@@ -12,7 +12,6 @@
         android:supportsRtl="true"
         android:theme="@style/EdgeLightTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ActivityWriteJournal"></activity>
         <activity
             android:name=".ActivityOnboarding"
             android:label="@string/title_activity_onboarding" />
@@ -38,6 +37,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="app.helianthus.edge.MainActivity" />
+        </activity>
+        <activity android:name=".ActivityWriteJournal"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:windowSoftInputMode="adjustResize"
+            android:parentActivityName=".MainActivity">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.helianthus.edge.MainActivity" />
+
         </activity>
     </application>
 

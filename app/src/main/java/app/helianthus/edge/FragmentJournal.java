@@ -3,6 +3,7 @@ package app.helianthus.edge;
 import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.button.MaterialButton;
+
 public class FragmentJournal extends Fragment {
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + JournalEntry.TABLE_NAME + " (" +
             JournalEntry._ID + " INTEGER PRIMARY KEY," +
@@ -34,9 +37,10 @@ public class FragmentJournal extends Fragment {
         return new FragmentJournal();
     }
 
-    View view;
-
     private boolean isChecked = false;
+
+    View view;
+    MaterialButton btnCreate;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -45,6 +49,15 @@ public class FragmentJournal extends Fragment {
 
         Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
+
+        btnCreate = view.findViewById(R.id.journal_btn_create);
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ActivityWriteJournal.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
