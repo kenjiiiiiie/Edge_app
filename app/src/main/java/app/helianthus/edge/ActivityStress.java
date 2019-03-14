@@ -1,16 +1,22 @@
 package app.helianthus.edge;
 
 import android.os.Bundle;
-import android.app.Activity;
+import android.widget.TextView;
 
-import java.util.Objects;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
-public class ActivityStress extends Activity {
+public class ActivityStress extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_stress);
-        //Objects.requireNonNull(getActionBar()).setDisplayHomeAsUpEnabled(true);
+
+        Toolbar toolbar = findViewById(R.id.reads_stress_toolbar);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
     }
 }
