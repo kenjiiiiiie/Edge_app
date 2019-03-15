@@ -1,3 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="stress_title_01">What is stress?</string>
+    <string name="stress_title_02">Ways of defining stress</string>
 </resources>

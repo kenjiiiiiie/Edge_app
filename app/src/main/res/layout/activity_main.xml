@@ -35,7 +35,7 @@
         android:background="@color/colorAccent"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="28dp"
-        android:src="@drawable/ic_mood"
+        android:src="@drawable/ic_add"
         android:elevation="6dp"
         app:fabSize="normal"/>
 

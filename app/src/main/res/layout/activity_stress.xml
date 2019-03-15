@@ -20,36 +20,13 @@
             android:layout_height="wrap_content"
             android:clipToPadding="false"
             android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingTop="8dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="16dp">
+            android:orientation="vertical">
 
-            <com.google.android.material.card.MaterialCardView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/reads_stress_recycler_view"
                 android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginTop="16dp"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginTop="16dp"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginTop="16dp"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginTop="16dp"/>
-
-            <com.google.android.material.card.MaterialCardView
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:layout_marginTop="16dp"/>
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_recycler_list"/>
 
         </LinearLayout>
 
