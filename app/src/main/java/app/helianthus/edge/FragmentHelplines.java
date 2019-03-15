@@ -1,5 +1,6 @@
 package app.helianthus.edge;
 
+import androidx.appcompat.widget.TooltipCompat;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -22,6 +23,8 @@ public class FragmentHelplines extends Fragment {
     private FragmentHelplinesViewModel mViewModel;
     private MaterialButton btn_call, btn_message;
     private ConstraintLayout btn_link1, btn_link2;
+    private String url1 = "https://www.pmha.org.ph/";
+    private String url2 = "http://ppa.philpsych.ph/";
 
     public static FragmentHelplines newInstance() {
         return new FragmentHelplines();
@@ -31,24 +34,14 @@ public class FragmentHelplines extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_helplines, container, false);
+
         btn_call = view.findViewById(R.id.helplines_btn_call);
         btn_message = view.findViewById(R.id.helplines_btn_message);
         btn_link1 = view.findViewById(R.id.helplines_btn_link1);
         btn_link2 = view.findViewById(R.id.helplines_btn_link2);
 
-        btn_call.setOnClickListener(new MaterialButton.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:09175584673")));
-            }
-        });
-
-        btn_call.setOnClickListener(new MaterialButton.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:09175584673")));
-            }
-        });
+        TooltipCompat.setTooltipText(btn_link1, url1);
+        TooltipCompat.setTooltipText(btn_link2, url2);
 
         btn_message.setOnClickListener(new MaterialButton.OnClickListener() {
             @Override
@@ -60,9 +53,24 @@ public class FragmentHelplines extends Fragment {
         btn_call.setOnClickListener(new MaterialButton.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(Intent.ACTION_CALL).setData(Uri.parse("tel:09175584673")));
+                startActivity(new Intent(Intent.ACTION_DIAL).setData(Uri.parse("tel:09175584673")));
             }
         });
+
+        btn_link1.setOnClickListener(new MaterialButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url1)));
+            }
+        });
+
+        btn_link2.setOnClickListener(new MaterialButton.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse(url2)));
+            }
+        });
+
         return view;
     }
 

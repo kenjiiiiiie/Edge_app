@@ -116,33 +116,6 @@
                         android:layout_height="1dp"
                         android:background="@color/colorOnLightStroke"/>
 
-                    <LinearLayout
-                        android:id="@+id/btn_add_mood"
-                        android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal"
-                        android:background="?attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle">
-
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_add"
-                            android:tint="@color/colorAccent"
-                            android:layout_marginEnd="8dp"
-                            tools:ignore="ContentDescription" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/home_add_mood"
-                            android:textColor="@color/colorAccent"
-                            android:fontFamily="@font/poppins_semibold"
-                            android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"/>
-
-                    </LinearLayout>
-
                 </LinearLayout>
 
             </com.google.android.material.card.MaterialCardView>
@@ -237,27 +210,42 @@
                     <LinearLayout
                         android:id="@+id/btn_start_daily_task"
                         android:layout_width="match_parent"
-                        android:layout_height="48dp"
-                        android:orientation="horizontal"
-                        android:background="?attr/selectableItemBackground"
-                        style="?android:attr/buttonBarButtonStyle">
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:orientation="horizontal">
 
-                        <ImageView
-                            android:layout_width="24dp"
-                            android:layout_height="24dp"
-                            android:src="@drawable/ic_start"
-                            android:tint="@color/colorAccent"
-                            android:layout_marginEnd="8dp"
-                            tools:ignore="ContentDescription" />
-
-                        <TextView
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/home_btn_more_task"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="@string/home_daily_task_start"
-                            android:textColor="@color/colorAccent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="4dp"
+                            android:text="@string/home_daily_tasks_more"
                             android:fontFamily="@font/poppins_semibold"
                             android:textAllCaps="false"
-                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"/>
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                            style="@style/Widget.MaterialComponents.Button.TextButton"
+                            app:cornerRadius="4dp"/>
+
+                        <com.google.android.material.button.MaterialButton
+                            android:id="@+id/home_btn_start_task"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="2dp"
+                            android:layout_marginBottom="2dp"
+                            android:layout_marginStart="4dp"
+                            android:layout_marginEnd="8dp"
+                            android:text="@string/home_daily_task_start"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:textAllCaps="false"
+                            android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                            style="@style/Widget.MaterialComponents.Button.UnelevatedButton.Icon"
+                            app:cornerRadius="4dp"
+                            app:icon="@drawable/ic_start"
+                            app:iconPadding="12dp"
+                            app:iconGravity="textStart"/>
 
                     </LinearLayout>
 

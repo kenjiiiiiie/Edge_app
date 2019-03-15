@@ -14,7 +14,6 @@ import com.github.mikephil.charting.data.BarEntry;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
@@ -23,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 
 public class FragmentHome extends Fragment {
 
@@ -42,7 +42,7 @@ public class FragmentHome extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        androidx.appcompat.widget.Toolbar mTopToolbar = view.findViewById(R.id.home_toolbar);
+        Toolbar mTopToolbar = view.findViewById(R.id.home_toolbar);
         mTopToolbar.inflateMenu(R.menu.home_app_bar_menu);
 
         String date_n = new SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault()).format(new Date());

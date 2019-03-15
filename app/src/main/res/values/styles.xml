@@ -11,14 +11,13 @@
         <item name="android:navigationBarColor">@color/colorDark</item>
         <item name="colorControlHighlight">@color/colorAccentRipple</item>
         <item name="android:colorEdgeEffect">@color/colorAccent</item>
+        <item name="android:windowActivityTransitions">true</item>
+        <item name="android:windowEnterTransition">@transition/explode</item>
+        <item name="android:windowExitTransition">@transition/explode</item>
     </style>
 
     <style name="BottomNavigation" parent="Widget.Design.BottomNavigationView">
         <item name="android:fontFamily">@font/poppins</item>
-        <item name="colorControlHighlight">@color/colorAccentRipple</item>
-    </style>
-
-    <style name="RippleLLButton" parent="Base.Widget.AppCompat.ButtonBar">
         <item name="colorControlHighlight">@color/colorAccentRipple</item>
     </style>
 

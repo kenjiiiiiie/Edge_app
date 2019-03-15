@@ -11,7 +11,8 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <style name="EdgeLightTheme.Transparency" parent="EdgeLightTheme">
-        <item name="android:statusBarColor">@android:color/transparent</item>
+    <style name="EdgeDarkStatusBar" parent="EdgeLightTheme">
+        <item name="android:windowLightStatusBar">false</item>
     </style>
+
 </resources>
