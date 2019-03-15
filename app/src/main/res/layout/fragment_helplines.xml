@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".FragmentReads">
+    tools:context=".FragmentHelplines">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/journal_nestedScrollView"
+        android:id="@+id/helplines_nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
@@ -128,7 +128,7 @@
                         android:layout_marginStart="16dp"
                         android:layout_marginEnd="16dp"
                         android:layout_marginBottom="12dp"
-                        android:text="@string/helplines_pap"
+                        android:text="@string/helplines_pmha"
                         android:fontFamily="@font/poppins_semibold"
                         android:textColor="@color/colorOnLightPrimary"
                         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"/>
@@ -238,7 +238,7 @@
         app:liftOnScroll="true">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/reads_toolbar"
+            android:id="@+id/helplines_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:contentInsetStart="0dp"

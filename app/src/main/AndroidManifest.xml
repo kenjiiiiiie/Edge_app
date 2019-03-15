@@ -5,17 +5,19 @@
 
     <application
         android:allowBackup="true"
+        android:configChanges="orientation|screenSize|keyboardHidden"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/EdgeLightTheme"
         tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".ActivityAddMood"></activity>
         <activity
             android:name=".ActivityOnboarding"
-            android:label="@string/title_activity_onboarding"></activity>
+            android:label="@string/title_activity_onboarding" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ActivitySplashScreen"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:label="@string/app_name">
             <intent-filter>
@@ -24,7 +26,28 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ActivitySplashScreen" />
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ActivityStress"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/EdgeDarkStatusBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.helianthus.edge.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ActivityWriteJournal"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName=".MainActivity"
+            android:windowSoftInputMode="adjustResize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.helianthus.edge.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

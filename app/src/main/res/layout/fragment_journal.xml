@@ -33,6 +33,7 @@
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
                 app:cornerRadius="24dp"
                 app:icon="@drawable/ic_add"
+                app:iconPadding="12dp"
                 app:iconGravity="textStart">
 
 

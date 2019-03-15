@@ -12,4 +12,8 @@
     <color name="colorOnDarkStroke">#1EFFFFFF</color>
     <color name="colorDark">#FF212121</color>
     <color name="colorOnLightStroke">#1E000000</color>
+    <color name="colorLightBlue50">#FFE1F5FE</color>
+    <color name="colorRed50">#FFFFEBEE</color>
+    <color name="colorGreen50">#FFE8F5E9</color>
+    <color name="colorYellow50">#FFFFFDE7</color>
 </resources>

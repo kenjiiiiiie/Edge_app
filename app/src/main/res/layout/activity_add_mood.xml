@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/journal_write_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ActivityWriteJournal">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/journal_nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="280dp"
+                android:layout_height="wrap_content"
+                android:text="@string/add_mood_hero_text"
+                android:gravity="center"
+                android:fontFamily="@font/poppins"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"/>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:layout_marginBottom="16dp"/>
+
+            <SeekBar
+                android:layout_width="240dp"
+                android:layout_height="wrap_content"
+                />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/journal_write_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
+            app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+
+            <TextView
+                android:id="@+id/journal_write_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="@string/add_mood_title"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/colorOnLightPrimary"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_mood_fab_done"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_marginBottom="18dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:paddingStart="12dp"
+        android:paddingEnd="20dp"
+        style="@style/Widget.MaterialComponents.Button.Icon"
+        android:text="Done"
+        android:fontFamily="@font/poppins_semibold"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+        app:cornerRadius="32dp"
+        app:icon="@drawable/ic_done"
+        app:iconPadding="12dp"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -2,20 +2,34 @@ package app.helianthus.edge;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
+import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.appcompat.widget.Toolbar;
 
+import android.provider.BaseColumns;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
+
+import com.google.android.material.button.MaterialButton;
 
 public class FragmentJournal extends Fragment {
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + JournalEntry.TABLE_NAME + " (" +
+            JournalEntry._ID + " INTEGER PRIMARY KEY," +
+            JournalEntry.COLUMN_DATE_TIME + " TEXT," +
+            JournalEntry.COLUMN_ENTRY + " TEXT)";
+
+    private static final String SQL_DELETE_ENTRIES =
+            "DROP TABLE IF EXISTS " + JournalEntry.TABLE_NAME;
 
     private FragmentJournalViewModel mViewModel;
 
@@ -23,18 +37,27 @@ public class FragmentJournal extends Fragment {
         return new FragmentJournal();
     }
 
-    View view;
-    androidx.appcompat.widget.Toolbar mTopToolbar;
-
     private boolean isChecked = false;
+
+    View view;
+    MaterialButton btnCreate;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_journal, container, false);
 
-        mTopToolbar = view.findViewById(R.id.journal_toolbar);
+        Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
+
+        btnCreate = view.findViewById(R.id.journal_btn_create);
+        btnCreate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), ActivityWriteJournal.class);
+                startActivity(intent);
+            }
+        });
 
         return view;
     }
@@ -65,4 +88,30 @@ public class FragmentJournal extends Fragment {
         }
     }
 
+    public static class JournalEntry implements BaseColumns {
+        static final String TABLE_NAME = "journal_entry";
+        static final String COLUMN_DATE_TIME = "date_time_entry";
+        static final String COLUMN_ENTRY = "entry";
+    }
+
+    public class JournalDBEntryHelper extends SQLiteOpenHelper {
+        // If you change the database schema, you must increment the database version.
+        public static final int DATABASE_VERSION = 1;
+        public static final String DATABASE_NAME = "FeedReader.db";
+
+        public JournalDBEntryHelper(Context context) {
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        }
+        public void onCreate(SQLiteDatabase db) {
+            db.execSQL(SQL_CREATE_ENTRIES);
+        }
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+            db.execSQL(SQL_DELETE_ENTRIES);
+            onCreate(db);
+        }
+        public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            onUpgrade(db, oldVersion, newVersion);
+        }
+    }
 }
