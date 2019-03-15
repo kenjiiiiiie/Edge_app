@@ -56,8 +56,8 @@ public class ActivityStress extends AppCompatActivity {
         }
 
         listData = new ListData[] {
-                new ListData("1", getString(R.string.stress_title_01)),
-                new ListData("2", getString(R.string.stress_title_02)),
+                new ListData("1", getString(R.string.stress_01_title)),
+                new ListData("2", getString(R.string.stress_02_title)),
         };
 
         recyclerView = findViewById(R.id.reads_stress_recycler_view);
