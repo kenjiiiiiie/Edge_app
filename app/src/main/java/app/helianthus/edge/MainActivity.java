@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     Fragment fragmentReads = new FragmentReads();
     Fragment fragmentHelplines = new FragmentHelplines();
     Fragment fragmentActive = fragmentHome;
+    FragmentTransaction fragmentTransaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        fragmentTransaction = fragmentManager.beginTransaction();
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -46,36 +48,28 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
-            FragmentTransaction fragmentTransaction;
-
             switch (item.getItemId()) {
                 case R.id.navigation_home:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.setCustomAnimations(R.anim.anim_fragment_enter, R.anim.anim_fragment_exit);
-                    fragmentTransaction.replace(R.id.main_fragment_container, fragmentHome, "1").commit();
-                    fragmentActive = fragmentHome;
+                    fragmentChange(fragmentHome, "1");
                     return true;
                 case R.id.navigation_journal:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.setCustomAnimations(R.anim.anim_fragment_enter, R.anim.anim_fragment_exit);
-                    fragmentTransaction.replace(R.id.main_fragment_container, fragmentJournal, "2").commit();
-                    fragmentActive = fragmentJournal;
+                    fragmentChange(fragmentJournal, "2");
                     return true;
                 case R.id.navigation_reads:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.setCustomAnimations(R.anim.anim_fragment_enter, R.anim.anim_fragment_exit);
-                    fragmentTransaction.replace(R.id.main_fragment_container, fragmentReads, "3").commit();
-                    fragmentActive = fragmentReads;
+                    fragmentChange(fragmentReads, "2");
                     return true;
                 case R.id.navigation_helplines:
-                    fragmentTransaction = fragmentManager.beginTransaction();
-                    fragmentTransaction.setCustomAnimations(R.anim.anim_fragment_enter, R.anim.anim_fragment_exit);
-                    fragmentTransaction.replace(R.id.main_fragment_container, fragmentHelplines, "4").commit();
-                    fragmentActive = fragmentHelplines;
+                    fragmentChange(fragmentHelplines, "2");
                     return true;
             }
             return false;
         }
     };
 
+    void fragmentChange(Fragment fragmentTo, String tag)
+    {
+        fragmentTransaction.setCustomAnimations(R.anim.anim_fragment_enter, R.anim.anim_fragment_exit);
+        fragmentTransaction.replace(R.id.main_fragment_container, fragmentTo, tag).commit();
+        fragmentActive = fragmentTo;
+    }
 }
