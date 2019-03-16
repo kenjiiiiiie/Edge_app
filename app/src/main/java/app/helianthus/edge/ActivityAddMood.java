@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -17,6 +18,7 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.button.MaterialButton;
 import com.xw.repo.BubbleSeekBar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -84,7 +86,7 @@ public class ActivityAddMood extends AppCompatActivity {
         moodSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
             @Override
             public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
-                moodAnimation.setProgress(progressFloat);
+                moodAnimation.setProgress(progressFloat / 100f);
             }
 
             @Override
@@ -95,6 +97,20 @@ public class ActivityAddMood extends AppCompatActivity {
             @Override
             public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
 
+            }
+        });
+        moodSeekBar.setCustomSectionTextArray(new BubbleSeekBar.CustomSectionTextArray() {
+            @NonNull
+            @Override
+            public SparseArray<String> onCustomize(int sectionCount, @NonNull SparseArray<String> array) {
+                array.clear();
+                array.put(0, "Awful");
+                array.put(25, "Bad");
+                array.put(50, "Meh");
+                array.put(75, "Good");
+                array.put(100, "Yass!");
+
+                return array;
             }
         });
 
