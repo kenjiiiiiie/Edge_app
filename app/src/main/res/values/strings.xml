@@ -14,7 +14,7 @@
     <string name="journal_title_change_view">Change view</string>
     <string name="journal_btn_create">Create new journal</string>
     <string name="journal_empty_state_title">It\'s empty in here</string>
-    <string name="journal_empty_state_subtitle">Start by writing about your experiences and feelings throughout the day.</string>
+    <string name="journal_empty_state_subtitle">Start by writing about your experiences or feelings throughout the day.</string>
     <string name="reads_read_about">Read about</string>
     <string name="reads_title_stress">Stress</string>
     <string name="reads_title_anxiety">Anxiety</string>
