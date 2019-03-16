@@ -1,28 +1,32 @@
 package app.helianthus.edge;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
+
     FragmentManager fragmentManager = getSupportFragmentManager();
     Fragment fragmentHome = new FragmentHome();
     Fragment fragmentJournal = new FragmentJournal();
     Fragment fragmentReads = new FragmentReads();
     Fragment fragmentHelplines = new FragmentHelplines();
     Fragment fragmentActive = fragmentHome;
+
+    FloatingActionButton fabAddMood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +42,37 @@ public class MainActivity extends AppCompatActivity {
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        fabAddMood = findViewById(R.id.home_fab_add_mood);
+        fabAddMood.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presentActivity(v);
+            }
+        });
+
+    }
+
+    private void presentActivity(View view) {
+
+        /* final View dialogAddMood = View.inflate(this, R.layout.activity_add_mood, null);
+
+        final Dialog dialog = new Dialog(this, R.style.DialogStyle);
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setContentView(dialogAddMood); */
+
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, view, "transition");
+
+        int revealX = (int) (view.getX() + view.getWidth() / 2);
+        int revealY = (int) (view.getY() + view.getHeight() / 2);
+
+        Intent intent = new Intent(this, ActivityAddMood.class);
+        intent.putExtra(ActivityAddMood.EXTRA_CIRCULAR_REVEAL_X, revealX);
+        intent.putExtra(ActivityAddMood.EXTRA_CIRCULAR_REVEAL_Y, revealY);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+
+        ActivityCompat.startActivity(this, intent, options.toBundle());
+        overridePendingTransition(R.anim.anim_slide_up,R.anim.anim_slide_down);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
