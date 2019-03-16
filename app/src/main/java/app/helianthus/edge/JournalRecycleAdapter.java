@@ -61,4 +61,5 @@ public class JournalRecycleAdapter extends RecyclerView.Adapter<JournalRecycleAd
     public int getItemCount() {
         return dateText.size();
     }
+
 }

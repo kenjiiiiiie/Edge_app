@@ -1,23 +1,13 @@
 package app.helianthus.edge;
 
-import androidx.lifecycle.ViewModelProviders;
-
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.provider.BaseColumns;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +20,16 @@ import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 public class FragmentJournal extends Fragment {
     static Context context;
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + JournalEntry.TABLE_NAME + " (" +
@@ -41,20 +41,22 @@ public class FragmentJournal extends Fragment {
             "DROP TABLE IF EXISTS " + JournalEntry.TABLE_NAME;
 
     private FragmentJournalViewModel mViewModel;
-
-    public static FragmentJournal newInstance() {
-        return new FragmentJournal();
-    }
     static RecyclerView recyclerView;
-    private boolean isChecked = false;
+    private boolean isChecked = true;
+    SwipeRefreshLayout refreshLayout;
 
     private JournalDBEntryHelper dbHelper ;
     private SQLiteDatabase database;
 
     View view;
     private MaterialButton btnCreate;
+    LinearLayout emptyState;
 
     private ArrayList<String>journalContent, journalDate, journalPreview;
+
+    public static FragmentJournal newInstance() {
+        return new FragmentJournal();
+    }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -81,6 +83,16 @@ public class FragmentJournal extends Fragment {
             }
         });
 
+        emptyState = view.findViewById(R.id.journal_empty_state);
+
+        refreshLayout = view.findViewById(R.id.journal_swipe_refresh);
+        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                Log.i("LOG_TAG", "Refreshing");
+            }
+        });
+
         //Read Database
         String[] projection = {JournalEntry._ID, JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
         String sortOrder = JournalEntry.COLUMN_DATE_TIME + " DESC";
@@ -97,6 +109,7 @@ public class FragmentJournal extends Fragment {
         if(cursor.getCount() > 0)
         {
             recyclerView.setVisibility(View.VISIBLE);
+            emptyState.setVisibility(View.GONE);
             while(cursor.moveToNext()){
                 String date = cursor.getString(cursor.getColumnIndexOrThrow(JournalEntry.COLUMN_DATE_TIME));
                 String content = cursor.getString(cursor.getColumnIndexOrThrow(JournalEntry.COLUMN_ENTRY));
@@ -105,6 +118,9 @@ public class FragmentJournal extends Fragment {
                 journalContent.add(content);
                 journalPreview.add(preview);
             }
+        }
+        else {
+            emptyState.setVisibility(View.VISIBLE);
         }
         cursor.close();
 
@@ -143,6 +159,7 @@ public class FragmentJournal extends Fragment {
                     isChecked = !item.isChecked();
                     item.setChecked(isChecked);
                 }
+                Toast.makeText(getContext(), "Clicked grid view", Toast.LENGTH_SHORT).show();
                 recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                 recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
 

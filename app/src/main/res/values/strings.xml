@@ -41,4 +41,6 @@
     <string name="add_mood_title">Add mood</string>
     <string name="add_mood_hero_text">How are you feeling today?</string>
     <string name="add_mood_done">Done</string>
+    <string name="snack_bar_undo">UNDO</string>
+    <string name="snack_bar_text">Journal deleted</string>
 </resources>
