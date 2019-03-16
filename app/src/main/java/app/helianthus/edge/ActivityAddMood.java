@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -13,6 +14,11 @@ import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.button.MaterialButton;
+import com.xw.repo.BubbleSeekBar;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -25,6 +31,8 @@ public class ActivityAddMood extends AppCompatActivity {
 
     private int revealX;
     private int revealY;
+
+    MaterialButton btnDone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +79,48 @@ public class ActivityAddMood extends AppCompatActivity {
         layoutParams.dimAmount = 0.42f;
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND);
         getWindow().setAttributes(layoutParams);
+
+        final LottieAnimationView moodAnimation = findViewById(R.id.add_mood_animation);
+
+        BubbleSeekBar moodSeekBar = findViewById(R.id.add_mood_seek_bar);
+        moodSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
+            @Override
+            public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+                moodAnimation.setProgress(progressFloat / 100f);
+            }
+
+            @Override
+            public void getProgressOnActionUp(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat) {
+
+            }
+
+            @Override
+            public void getProgressOnFinally(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+
+            }
+        });
+        moodSeekBar.setCustomSectionTextArray(new BubbleSeekBar.CustomSectionTextArray() {
+            @NonNull
+            @Override
+            public SparseArray<String> onCustomize(int sectionCount, @NonNull SparseArray<String> array) {
+                array.clear();
+                array.put(0, "Awful");
+                array.put(25, "Bad");
+                array.put(50, "Meh");
+                array.put(75, "Good");
+                array.put(100, "Yass!");
+
+                return array;
+            }
+        });
+
+        btnDone = findViewById(R.id.add_mood_fab_done);
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                unRevealActivity();
+            }
+        });
 
     }
 
