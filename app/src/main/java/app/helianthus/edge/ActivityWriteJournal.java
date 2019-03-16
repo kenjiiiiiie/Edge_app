@@ -3,6 +3,8 @@ package app.helianthus.edge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
 
 public class ActivityWriteJournal extends AppCompatActivity {
     TextView write_title;
@@ -61,10 +68,26 @@ public class ActivityWriteJournal extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.journal_write_save:
                 //Save journal
+                String date_n = new SimpleDateFormat("MMMM dd, yyyy kk:mm:ss", Locale.getDefault()).format(new Date());
 
+                FragmentJournal.JournalDBEntryHelper dbHelper = new FragmentJournal.JournalDBEntryHelper(this);
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+                ContentValues values = new ContentValues();
+                values.put(FragmentJournal.JournalEntry.COLUMN_ENTRY, write_editText.getText().toString());
+                values.put(FragmentJournal.JournalEntry.COLUMN_DATE_TIME, date_n);
+                long newRowId = db.insert(FragmentJournal.JournalEntry.TABLE_NAME, null, values);
+                Toast.makeText(this, "Journal Saved", Toast.LENGTH_SHORT).show();
+                FragmentJournal.recyclerView.invalidate();
+                onBackPressed();
                 return true;
             default:
                 return false;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        write_isEdit = false;
     }
 }

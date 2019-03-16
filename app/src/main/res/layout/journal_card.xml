@@ -2,13 +2,10 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/transparent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:showIn="@layout/fragment_journal">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/journal_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="0dp"
@@ -18,6 +15,7 @@
         app:cardBackgroundColor="@color/colorPrimary">
 
         <LinearLayout
+            android:id="@+id/journal_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="12dp"

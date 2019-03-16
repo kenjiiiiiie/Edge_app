@@ -24,12 +24,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
 
 public class FragmentJournal extends Fragment {
+    static Context context;
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + JournalEntry.TABLE_NAME + " (" +
             JournalEntry._ID + " INTEGER PRIMARY KEY," +
             JournalEntry.COLUMN_DATE_TIME + " TEXT," +
@@ -43,16 +45,16 @@ public class FragmentJournal extends Fragment {
     public static FragmentJournal newInstance() {
         return new FragmentJournal();
     }
-    RecyclerView recyclerView;
+    static RecyclerView recyclerView;
     private boolean isChecked = false;
 
-    JournalDBEntryHelper dbHelper = new JournalDBEntryHelper(getContext());
-    SQLiteDatabase database = dbHelper.getReadableDatabase();
+    private JournalDBEntryHelper dbHelper ;
+    private SQLiteDatabase database;
 
     View view;
-    MaterialButton btnCreate;
+    private MaterialButton btnCreate;
 
-    ArrayList<String>journalContent, journalDate, journalPreview;
+    private ArrayList<String>journalContent, journalDate, journalPreview;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -60,9 +62,15 @@ public class FragmentJournal extends Fragment {
         view = inflater.inflate(R.layout.fragment_journal, container, false);
         journalDate = new ArrayList<>();
         journalContent = new ArrayList<>();
+        journalPreview = new ArrayList<>();
 
+        dbHelper = new JournalDBEntryHelper(getContext());
+        database = dbHelper.getReadableDatabase();
+        context = getContext();
         Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
+
+        recyclerView = view.findViewById(R.id.journal_recycler_view);
 
         btnCreate = view.findViewById(R.id.journal_btn_create);
         btnCreate.setOnClickListener(new View.OnClickListener() {
@@ -74,7 +82,7 @@ public class FragmentJournal extends Fragment {
         });
 
         //Read Database
-        String[] projection = {JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
+        String[] projection = {JournalEntry._ID, JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
         String sortOrder = JournalEntry.COLUMN_DATE_TIME + " DESC";
         Cursor cursor = database.query(
                 JournalEntry.TABLE_NAME,
@@ -88,26 +96,18 @@ public class FragmentJournal extends Fragment {
 
         if(cursor.getCount() > 0)
         {
-            LinearLayout emptyState = view.findViewById(R.id.journal_empty_state);
-            emptyState.setVisibility(View.INVISIBLE);
+            recyclerView.setVisibility(View.VISIBLE);
             while(cursor.moveToNext()){
                 String date = cursor.getString(cursor.getColumnIndexOrThrow(JournalEntry.COLUMN_DATE_TIME));
                 String content = cursor.getString(cursor.getColumnIndexOrThrow(JournalEntry.COLUMN_ENTRY));
-                String preview = content;
+                String preview = content.length() > 100 ? content.substring(0, 100) + "...": content;
                 journalDate.add(date);
-                if(content.length() > 30)
-                {
-                    preview = content.substring(0, 29) + "...";
-                }
-                journalContent.add(preview);
-                journalPreview.add(content);
+                journalContent.add(content);
+                journalPreview.add(preview);
             }
         }
-
         cursor.close();
 
-
-        recyclerView = view.findViewById(R.id.journal_recycler_view);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
@@ -133,8 +133,6 @@ public class FragmentJournal extends Fragment {
         switch (item.getItemId()) {
             case R.id.journal_menu_grid_toggle:
                 if(isChecked){
-                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                    recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
                     isChecked = !item.isChecked();
                     item.setChecked(isChecked);
                 }
@@ -145,36 +143,43 @@ public class FragmentJournal extends Fragment {
                     isChecked = !item.isChecked();
                     item.setChecked(isChecked);
                 }
+                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+
                 return true;
             default:
                 return false;
         }
     }
 
-    public static class JournalEntry implements BaseColumns {
+    static class JournalEntry implements BaseColumns {
         static final String TABLE_NAME = "journal_entry";
         static final String COLUMN_DATE_TIME = "date_time_entry";
         static final String COLUMN_ENTRY = "entry";
     }
 
-    public class JournalDBEntryHelper extends SQLiteOpenHelper {
+    public static class JournalDBEntryHelper extends SQLiteOpenHelper {
         // If you change the database schema, you must increment the database version.
-        public static final int DATABASE_VERSION = 1;
-        public static final String DATABASE_NAME = "FeedReader.db";
+        static final int DATABASE_VERSION = 1;
+        static final String DATABASE_NAME = "Journal.db";
 
-        public JournalDBEntryHelper(Context context) {
+        JournalDBEntryHelper(Context context) {
             super(context, DATABASE_NAME, null, DATABASE_VERSION);
         }
         public void onCreate(SQLiteDatabase db) {
             db.execSQL(SQL_CREATE_ENTRIES);
         }
         public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
             db.execSQL(SQL_DELETE_ENTRIES);
             onCreate(db);
         }
         public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             onUpgrade(db, oldVersion, newVersion);
         }
+    }
+
+    static void startWriteJournal_Activity()
+    {
+        context.startActivity(new Intent(context, ActivityWriteJournal.class));
     }
 }
