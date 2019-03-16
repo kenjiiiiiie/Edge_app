@@ -12,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
         <LinearLayout
             android:id="@+id/jounral_main_container"
             android:layout_width="match_parent"
@@ -36,61 +35,61 @@
                 app:icon="@drawable/ic_add"
                 app:iconPadding="12dp"
                 app:iconGravity="textStart">
-
-
             </com.google.android.material.button.MaterialButton>
-
-            <LinearLayout
-                android:id="@+id/journal_empty_state"
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="56dp"
-                android:orientation="vertical">
+                android:layout_height="wrap_content">
+                <LinearLayout
+                    android:id="@+id/journal_empty_state"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="56dp"
+                    android:orientation="vertical">
 
-                <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="360dp"
-                    android:layout_height="180dp"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:scaleType="centerInside"
-                    app:lottie_autoPlay="true"
-                    app:lottie_loop="true"
-                    app:lottie_rawRes="@raw/empty_journal_animation_on_light" />
+                    <com.airbnb.lottie.LottieAnimationView
+                        android:layout_width="360dp"
+                        android:layout_height="180dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:scaleType="centerInside"
+                        app:lottie_autoPlay="true"
+                        app:lottie_loop="true"
+                        app:lottie_rawRes="@raw/empty_journal_animation_on_light" />
 
-                <TextView
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:layout_marginBottom="4dp"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:gravity="center"
+                        android:text="@string/journal_empty_state_title"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="@color/colorOnLightSecondary" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginStart="32dp"
+                        android:layout_marginEnd="32dp"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="@string/journal_empty_state_subtitle"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                        android:textColor="@color/colorOnLightSecondary" />
+
+                </LinearLayout>
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/journal_recycler_view"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:layout_marginBottom="4dp"
-                    android:fontFamily="@font/poppins_semibold"
-                    android:gravity="center"
-                    android:text="@string/journal_empty_state_title"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    android:textColor="@color/colorOnLightSecondary" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_marginStart="32dp"
-                    android:layout_marginEnd="32dp"
-                    android:fontFamily="@font/poppins"
-                    android:gravity="center"
-                    android:text="@string/journal_empty_state_subtitle"
-                    android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
-                    android:textColor="@color/colorOnLightSecondary" />
-
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/journal_recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                    android:layout_marginTop="16dp"/>
+            </FrameLayout>
         </LinearLayout>
-
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.appbar.AppBarLayout
