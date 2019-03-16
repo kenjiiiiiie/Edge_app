@@ -1,8 +1,5 @@
 package app.helianthus.edge;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
 import android.content.ContentValues;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -17,6 +14,9 @@ import android.widget.Toast;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class ActivityWriteJournal extends AppCompatActivity {
     TextView write_title;
@@ -46,7 +46,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
 
         if(write_isEdit)
         {
-            write_title.setText("Edit Journal");
+            write_title.setText("");
             write_editText.setText(write_content);
         }
     }
@@ -68,7 +68,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.journal_write_save:
                 //Save journal
-                String date_n = new SimpleDateFormat("MMMM dd, yyyy kk:mm:ss", Locale.getDefault()).format(new Date());
+                String date_n = new SimpleDateFormat("MMMM dd, yyyy hh:mm aa", Locale.getDefault()).format(new Date());
 
                 FragmentJournal.JournalDBEntryHelper dbHelper = new FragmentJournal.JournalDBEntryHelper(this);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
