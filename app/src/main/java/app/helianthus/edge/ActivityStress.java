@@ -9,12 +9,9 @@ import android.view.Window;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
-import java.util.ArrayList;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.palette.graphics.Palette;
-import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -58,6 +55,9 @@ public class ActivityStress extends AppCompatActivity {
         listData = new ListData[] {
                 new ListData("1", getString(R.string.stress_01_title)),
                 new ListData("2", getString(R.string.stress_02_title)),
+                new ListData("3", getString(R.string.stress_03_title)),
+                new ListData("4", getString(R.string.stress_04_title)),
+                new ListData("5", getString(R.string.stress_05_title)),
         };
 
         recyclerView = findViewById(R.id.reads_stress_recycler_view);
