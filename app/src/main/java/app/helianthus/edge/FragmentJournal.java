@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
@@ -12,6 +13,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.provider.BaseColumns;
 import android.view.LayoutInflater;
@@ -19,8 +23,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.google.android.material.button.MaterialButton;
+
+import java.util.ArrayList;
 
 public class FragmentJournal extends Fragment {
     private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + JournalEntry.TABLE_NAME + " (" +
@@ -36,16 +43,23 @@ public class FragmentJournal extends Fragment {
     public static FragmentJournal newInstance() {
         return new FragmentJournal();
     }
-
+    RecyclerView recyclerView;
     private boolean isChecked = false;
+
+    JournalDBEntryHelper dbHelper = new JournalDBEntryHelper(getContext());
+    SQLiteDatabase database = dbHelper.getReadableDatabase();
 
     View view;
     MaterialButton btnCreate;
+
+    ArrayList<String>journalContent, journalDate, journalPreview;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_journal, container, false);
+        journalDate = new ArrayList<>();
+        journalContent = new ArrayList<>();
 
         Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
@@ -59,6 +73,44 @@ public class FragmentJournal extends Fragment {
             }
         });
 
+        //Read Database
+        String[] projection = {JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
+        String sortOrder = JournalEntry.COLUMN_DATE_TIME + " DESC";
+        Cursor cursor = database.query(
+                JournalEntry.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                sortOrder
+        );
+
+        if(cursor.getCount() > 0)
+        {
+            LinearLayout emptyState = view.findViewById(R.id.journal_empty_state);
+            emptyState.setVisibility(View.INVISIBLE);
+            while(cursor.moveToNext()){
+                String date = cursor.getString(cursor.getColumnIndexOrThrow(JournalEntry.COLUMN_DATE_TIME));
+                String content = cursor.getString(cursor.getColumnIndexOrThrow(JournalEntry.COLUMN_ENTRY));
+                String preview = content;
+                journalDate.add(date);
+                if(content.length() > 30)
+                {
+                    preview = content.substring(0, 29) + "...";
+                }
+                journalContent.add(preview);
+                journalPreview.add(content);
+            }
+        }
+
+        cursor.close();
+
+
+        recyclerView = view.findViewById(R.id.journal_recycler_view);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
         return view;
     }
 
@@ -80,8 +132,19 @@ public class FragmentJournal extends Fragment {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.journal_menu_grid_toggle:
-                isChecked = !item.isChecked();
-                item.setChecked(isChecked);
+                if(isChecked){
+                    recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                    recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+                    isChecked = !item.isChecked();
+                    item.setChecked(isChecked);
+                }
+                else
+                {
+                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                    recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+                    isChecked = !item.isChecked();
+                    item.setChecked(isChecked);
+                }
                 return true;
             default:
                 return false;

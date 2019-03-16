@@ -8,13 +8,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 public class ActivityWriteJournal extends AppCompatActivity {
+    TextView write_title;
+    EditText write_editText;
+    static boolean write_isEdit = false;
+    static String write_content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_write_journal);
+
+        write_title = findViewById(R.id.journal_write_title);
+        write_editText = findViewById(R.id.journal_write_edittext);
 
         View view = findViewById(R.id.journal_write_root);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
@@ -28,6 +37,11 @@ public class ActivityWriteJournal extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_cancel);
 
+        if(write_isEdit)
+        {
+            write_title.setText("Edit Journal");
+            write_editText.setText(write_content);
+        }
     }
 
     @Override
@@ -47,6 +61,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.journal_write_save:
                 //Save journal
+
                 return true;
             default:
                 return false;

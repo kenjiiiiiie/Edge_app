@@ -35,6 +35,7 @@ public class ActivitySplashScreen extends AppCompatActivity {
                     SharedPreferences.Editor edit = prefs.edit();
                     edit.putBoolean(getString(R.string.first_launch), Boolean.TRUE).apply();
                     ActivitySplashScreen.this.startActivity(new Intent(ActivitySplashScreen.this, ActivityOnboarding.class));
+                    ActivitySplashScreen.this.finish();
                 }
                 else{
                     ActivitySplashScreen.this.startActivity(new Intent(ActivitySplashScreen.this, MainActivity.class));
