@@ -16,6 +16,13 @@
         <item name="android:windowExitTransition">@transition/explode</item>
     </style>
 
+    <style name="EdgeLightTheme.Transparent" parent="EdgeLightTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
     <style name="BottomNavigation" parent="Widget.Design.BottomNavigationView">
         <item name="android:fontFamily">@font/poppins</item>
         <item name="colorControlHighlight">@color/colorAccentRipple</item>

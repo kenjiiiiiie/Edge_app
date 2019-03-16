@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/colorPrimary"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
     <include
         layout="@layout/content_main"
@@ -29,13 +29,13 @@
         app:labelVisibilityMode="labeled"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floating_action_button"
+        android:id="@+id/home_fab_add_mood"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorAccent"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="28dp"
-        android:src="@drawable/ic_mood"
+        android:src="@drawable/ic_add"
         android:elevation="6dp"
         app:fabSize="normal"/>
 

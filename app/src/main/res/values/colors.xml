@@ -13,7 +13,6 @@
     <color name="colorDark">#FF212121</color>
     <color name="colorOnLightStroke">#1E000000</color>
     <color name="colorLightBlue50">#FFE1F5FE</color>
-    <color name="colorRed50">#FFFFEBEE</color>
-    <color name="colorGreen50">#FFE8F5E9</color>
-    <color name="colorYellow50">#FFFFFDE7</color>
+    <color name="colorGreenA100">#FFB9F6CA</color>
+    <color name="colorGreenA200">#FF69F0AE</color>
 </resources>

@@ -38,4 +38,6 @@
     <string name="journal_write_hint">Write something...</string>
     <string name="journal_write_title">New journal</string>
     <string name="home_daily_tasks_more">More tasks</string>
+    <string name="add_mood_title">Add mood</string>
+    <string name="add_mood_hero_text">How are you feeling today?</string>
 </resources>
