@@ -40,6 +40,17 @@
             app:lottie_progress="0.5"
             app:lottie_rawRes="@raw/mood_animation_ease" />
 
+        <TextView
+            android:id="@+id/add_mood_level_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Mood level"
+            android:fontFamily="@font/poppins_semibold"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            android:textColor="@color/colorOnLightSecondary"/>
+
         <com.xw.repo.BubbleSeekBar
             android:id="@+id/add_mood_seek_bar"
             android:layout_width="match_parent"
