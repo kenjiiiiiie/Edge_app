@@ -14,6 +14,7 @@ import com.github.mikephil.charting.data.BarEntry;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 import androidx.annotation.NonNull;
@@ -56,20 +57,22 @@ public class FragmentHome extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
 
-        /* barChart = (BarChart) view.findViewById(R.id.mood_bar_chart);
+        barChart = (BarChart) view.findViewById(R.id.mood_bar_chart);
 
         List<BarEntry> entries = new ArrayList<>();
         entries.add(new BarEntry(0f, 30f));
         entries.add(new BarEntry(1f, 80f));
         entries.add(new BarEntry(2f, 60f));
         entries.add(new BarEntry(3f, 50f));
-        // gap of 2f
         entries.add(new BarEntry(5f, 70f));
         entries.add(new BarEntry(6f, 60f));
 
         BarDataSet set = new BarDataSet(entries, "BarDataSet");
         BarData data = new BarData(set);
-        barChart.setData(data); */
+        data.setBarWidth(0.9f);
+        barChart.setData(data);
+        barChart.setFitBars(true);
+        barChart.invalidate();
 
         return view;
     }
