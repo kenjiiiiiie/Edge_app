@@ -48,4 +48,7 @@
     <string name="add_mood_level_text_003">Meh</string>
     <string name="add_mood_level_text_002">Bad</string>
     <string name="add_mood_level_text_001">Awful</string>
+    <string name="name">name</string>
+    <string name="age">14</string>
+    <string name="image_id">0</string>
 </resources>

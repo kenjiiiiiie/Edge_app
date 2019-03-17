@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".ActivityYou">
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/you_nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="ifContentScrolls"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingTop="16dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="16dp">
+
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:columnCount="3">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_001"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_001"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_002"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_002"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_003"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_003"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_004"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_004"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_005"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_005"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_006"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_006"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_007"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_007"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_008"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_008"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_009"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_009"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_010"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_010"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_011"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_011"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/avatar_012"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:layout_marginTop="56dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/ic_avatar_012"
+                    app:riv_border_color="@color/colorOnLightStroke"
+                    app:riv_border_width="1dp"
+                    app:riv_corner_radius="56dp" />
+            </GridLayout>
+
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:liftOnScroll="true">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/you_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
+            app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
+
+            <TextView
+                android:id="@+id/journal_write_title"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:text="You"
+                android:gravity="center_vertical"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/colorOnLightPrimary"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

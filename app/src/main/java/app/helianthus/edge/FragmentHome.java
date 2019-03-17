@@ -9,9 +9,11 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.provider.BaseColumns;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
@@ -56,6 +58,20 @@ public class FragmentHome extends Fragment {
 
         Toolbar mTopToolbar = view.findViewById(R.id.home_toolbar);
         mTopToolbar.inflateMenu(R.menu.home_app_bar_menu);
+
+        mTopToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.home_menu_profile:
+                        getActivity().startActivity(new Intent(getContext(), ActivityYou.class));
+                        return true;
+                    default:
+                        return false;
+                }
+            }
+        });
+
         String date_n = new SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date = view.findViewById(R.id.home_date);
         date.setText(date_n);
@@ -180,6 +196,16 @@ public class FragmentHome extends Fragment {
         }
         public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
             onUpgrade(db, oldVersion, newVersion);
+        }
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.home_menu_profile:
+                getActivity().startActivity(new Intent(getContext(), ActivityYou.class));
+                return true;
+            default:
+                return false;
         }
     }
 }

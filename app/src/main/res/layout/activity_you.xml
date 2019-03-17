@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-    tools:context=".You">
+    tools:context=".ActivityYou">
     <androidx.core.widget.NestedScrollView
         android:id="@+id/you_nestedScrollView"
         android:layout_width="match_parent"
@@ -13,6 +13,7 @@
         android:overScrollMode="ifContentScrolls"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:clipToPadding="false">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -28,6 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
                 <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/RoundedImageView"
                     android:layout_width="112dp"
                     android:layout_height="112dp"
                     android:layout_marginTop="56dp"
@@ -38,7 +40,7 @@
                     app:riv_corner_radius="56dp" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/btnCall"
+                    android:id="@+id/btnChangeProfile"
                     style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
                     android:layout_width="48dp"
                     android:layout_height="match_parent"
@@ -58,7 +60,9 @@
                     android:layout_width="150dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/border">
+                    android:background="@drawable/border"
+                    android:padding="10dp"
+                    android:gravity="">
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -84,13 +88,14 @@
                     android:layout_width="150dp"
                     android:layout_height="48dp"
                     android:layout_marginTop="16dp"
-                    android:background="@drawable/border">
-                    <Spinner
-                        android:id="@+id/age"
-                        android:layout_width="150dp"
-                        android:layout_height="48dp"
-                        android:overlapAnchor="false"
-                        android:spinnerMode="dropdown"/>
+                    android:background="@drawable/border"
+                    android:padding="10dp">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/transparent"
+                        android:inputType="number"
+                        android:id="@+id/age"/>
                 </LinearLayout>
 
                 <TextView

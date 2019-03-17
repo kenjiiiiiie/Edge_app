@@ -42,7 +42,6 @@ public class FragmentJournal extends Fragment {
 
     private FragmentJournalViewModel mViewModel;
     static RecyclerView recyclerView;
-    SwipeRefreshLayout refreshLayout;
 
     private JournalDBEntryHelper dbHelper ;
     private SQLiteDatabase database;

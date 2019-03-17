@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/EdgeLightTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".You"></activity>
+        <activity android:name=".ActivityYou"></activity>
         <activity android:name=".ActivityAnxiety" />
         <activity
             android:name=".ActivityOnboarding"
@@ -51,6 +51,15 @@
         </activity>
         <activity
             android:name=".ActivityAddMood"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/EdgeLightTheme.Transparent">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="app.helianthus.edge.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ActivitySetProfilePicture"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:parentActivityName=".MainActivity"
             android:theme="@style/EdgeLightTheme.Transparent">

@@ -59,6 +59,8 @@ public class ActivitySplashScreen extends AppCompatActivity {
                     SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
                     boolean previouslyStarted = prefs.getBoolean(getString(R.string.first_launch), false);
                     if (!previouslyStarted) {
+                        SharedPreferences.Editor edit = prefs.edit();
+                        edit.putBoolean(getString(R.string.first_launch), Boolean.TRUE).apply();
                         ActivitySplashScreen.this.startActivity(new Intent(ActivitySplashScreen.this, ActivityOnboarding.class));
                     }
                     else{
