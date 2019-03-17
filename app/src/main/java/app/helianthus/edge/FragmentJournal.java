@@ -72,32 +72,30 @@ public class FragmentJournal extends Fragment {
         context = getContext();
         Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
-        mTopToolbar.setOnMenuItemClickListener(item -> {
+        mTopToolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
 
-            switch (item.getItemId()) {
-                case R.id.journal_menu_grid_toggle:
-                    if(journalDate.isEmpty() && journalContent.isEmpty() && journalPreview.isEmpty())
-                    {
-                        Toast.makeText(getContext(), "Write Something", Toast.LENGTH_SHORT).show();
-                    }
-                    else
-                    {
-                        if(isChecked[0]){
-                            item.setIcon(R.drawable.ic_default_view);
-                            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                            recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
-                            isChecked[0] = false;
+                switch (item.getItemId()) {
+                    case R.id.journal_menu_grid_toggle:
+                        if (journalDate.isEmpty() && journalContent.isEmpty() && journalPreview.isEmpty()) {
+                            Toast.makeText(FragmentJournal.this.getContext(), "Write Something", Toast.LENGTH_SHORT).show();
+                        } else {
+                            if (isChecked[0]) {
+                                item.setIcon(R.drawable.ic_default_view);
+                                recyclerView.setLayoutManager(new GridLayoutManager(FragmentJournal.this.getActivity(), 2));
+                                recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+                                isChecked[0] = false;
+                            } else {
+                                item.setIcon(R.drawable.ic_grid_view);
+                                recyclerView.setLayoutManager(new LinearLayoutManager(FragmentJournal.this.getActivity()));
+                                recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+                                isChecked[0] = true;
+                            }
                         }
-                        else
-                        {
-                            item.setIcon(R.drawable.ic_grid_view);
-                            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                            recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
-                            isChecked[0] = true;
-                        }
-                    }
+                }
+                return false;
             }
-            return false;
         });
 
         recyclerView = view.findViewById(R.id.journal_recycler_view);
@@ -112,9 +110,6 @@ public class FragmentJournal extends Fragment {
         });
 
         emptyState = view.findViewById(R.id.journal_empty_state);
-
-        refreshLayout = view.findViewById(R.id.journal_swipe_refresh);
-        refreshLayout.setOnRefreshListener(() -> Log.i("LOG_TAG", "Refreshing"));
 
         //Read Database
         String[] projection = {JournalEntry._ID, JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
