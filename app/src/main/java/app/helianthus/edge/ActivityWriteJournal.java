@@ -50,6 +50,11 @@ public class ActivityWriteJournal extends AppCompatActivity {
             write_title.setText("");
             write_editText.setText(write_content);
         }
+        else
+        {
+            write_title.setText(getString(R.string.journal_write_title));
+            write_editText.setText("");
+        }
     }
 
     @Override
@@ -98,6 +103,9 @@ public class ActivityWriteJournal extends AppCompatActivity {
                 }
                 Toast.makeText(this, "Journal Saved", Toast.LENGTH_SHORT).show();
                 return true;
+            case android.R.id.home:
+                write_isEdit = false;
+                return false;
             default:
                 return false;
         }

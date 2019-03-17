@@ -5,7 +5,6 @@ import android.animation.AnimatorListenerAdapter;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.util.SparseArray;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
@@ -13,12 +12,12 @@ import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
+import android.widget.TextView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.button.MaterialButton;
 import com.xw.repo.BubbleSeekBar;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -31,6 +30,8 @@ public class ActivityAddMood extends AppCompatActivity {
 
     private int revealX;
     private int revealY;
+    float moodProgress = 0.50f;
+    TextView moodLevel;
 
     MaterialButton btnDone;
 
@@ -83,10 +84,30 @@ public class ActivityAddMood extends AppCompatActivity {
         final LottieAnimationView moodAnimation = findViewById(R.id.add_mood_animation);
 
         BubbleSeekBar moodSeekBar = findViewById(R.id.add_mood_seek_bar);
+        moodLevel = findViewById(R.id.add_mood_level_text);
         moodSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
             @Override
             public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+
                 moodAnimation.setProgress(progressFloat / 100f);
+                moodProgress = progressFloat / 100f;
+
+                if (moodProgress >= 0.875f) {
+                    moodLevel.setText(getString(R.string.add_mood_level_text_005));
+                }
+                else if (moodProgress >= 0.625f) {
+                    moodLevel.setText(getString(R.string.add_mood_level_text_004));
+                }
+                else if (moodProgress >= 0.375f) {
+                    moodLevel.setText(getString(R.string.add_mood_level_text_003));
+                }
+                else if (moodProgress >= 0.125f) {
+                    moodLevel.setText(getString(R.string.add_mood_level_text_002));
+                }
+                else if (moodProgress >= 0.0f) {
+                    moodLevel.setText(getString(R.string.add_mood_level_text_001));
+                }
+
             }
 
             @Override
@@ -99,27 +120,43 @@ public class ActivityAddMood extends AppCompatActivity {
 
             }
         });
-        moodSeekBar.setCustomSectionTextArray(new BubbleSeekBar.CustomSectionTextArray() {
-            @NonNull
-            @Override
-            public SparseArray<String> onCustomize(int sectionCount, @NonNull SparseArray<String> array) {
-                array.clear();
-                array.put(0, "Awful");
-                array.put(25, "Bad");
-                array.put(50, "Meh");
-                array.put(75, "Good");
-                array.put(100, "Yass!");
-
-                return array;
-            }
-        });
 
         btnDone = findViewById(R.id.add_mood_fab_done);
-        btnDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                unRevealActivity();
+        btnDone.setOnClickListener(v -> {
+
+            moodSeekBar.setEnabled(false);
+
+            if (moodProgress >= 0.875) {
+                moodAnimation.setAnimation(R.raw.mood_005_animation);
             }
+            else if (moodProgress >= 0.625) {
+                moodAnimation.setAnimation(R.raw.mood_004_animation);
+            }
+            else if (moodProgress >= 0.375) {
+                moodAnimation.setAnimation(R.raw.mood_003_animation);
+            }
+            else if (moodProgress >= 0.125) {
+                moodAnimation.setAnimation(R.raw.mood_002_animation);
+            }
+            else if (moodProgress >= 0.0) {
+                moodAnimation.setAnimation(R.raw.mood_001_animation);
+            }
+
+            moodAnimation.playAnimation();
+            moodAnimation.addAnimatorListener(new Animator.AnimatorListener() {
+                @Override
+                public void onAnimationStart(Animator animation) { }
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    unRevealActivity();
+                }
+                @Override
+                public void onAnimationCancel(Animator animation) { }
+
+                @Override
+                public void onAnimationRepeat(Animator animation) { }
+            });
+
         });
 
     }

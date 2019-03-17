@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class JournalRecycleAdapter extends RecyclerView.Adapter<JournalRecycleAdapter.ViewHolder> {
+
     private ArrayList<String> dateText, contentText, preview;
 
     static class ViewHolder extends RecyclerView.ViewHolder {
@@ -61,4 +62,5 @@ public class JournalRecycleAdapter extends RecyclerView.Adapter<JournalRecycleAd
     public int getItemCount() {
         return dateText.size();
     }
+
 }
