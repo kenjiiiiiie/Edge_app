@@ -1,10 +1,7 @@
 package app.helianthus.edge;
 
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.TaskStackBuilder;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -16,8 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-
-import com.google.android.material.card.MaterialCardView;
 
 public class FragmentReads extends Fragment {
 
@@ -40,7 +35,26 @@ public class FragmentReads extends Fragment {
         cardStress.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                intent = new Intent(getContext(), ActivityStress.class);
+                intent = new Intent(getContext(), ActivityReadList.class);
+                ActivityReadList.EXTRA_CHOSEN_READS = "Stress";
+                startActivity(intent);
+            }
+        });
+
+        cardAnxiety.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getContext(), ActivityReadList.class);
+                ActivityReadList.EXTRA_CHOSEN_READS = "Anxiety";
+                startActivity(intent);
+            }
+        });
+
+        cardDepression.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(getContext(), ActivityReadList.class);
+                ActivityReadList.EXTRA_CHOSEN_READS = "Depression";
                 startActivity(intent);
             }
         });
