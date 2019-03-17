@@ -26,7 +26,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 
 public class FragmentHome extends Fragment {
-
     private FragmentHomeViewModel mViewModel;
     private RecyclerView recyclerView;
     private ArrayList<GameModel> imageModelArrayList;
@@ -73,7 +72,6 @@ public class FragmentHome extends Fragment {
         barChart.setData(data);
         barChart.setFitBars(true);
         barChart.invalidate();
-
         return view;
     }
 
@@ -89,9 +87,7 @@ public class FragmentHome extends Fragment {
             list.add(gameModel);
 
         }
-
         return list;
-
     }
 
     @Override
