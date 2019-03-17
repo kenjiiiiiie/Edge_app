@@ -30,6 +30,7 @@ import android.widget.Toast;
 import com.google.android.material.button.MaterialButton;
 
 import java.util.ArrayList;
+import java.util.EmptyStackException;
 
 public class FragmentJournal extends Fragment {
     private ViewGroup parent;
@@ -78,7 +79,7 @@ public class FragmentJournal extends Fragment {
                 switch (item.getItemId()) {
                     case R.id.journal_menu_grid_toggle:
                         if(isChecked[0]){
-                            item.setIcon(R.drawable.ic_account);
+                            item.setIcon(R.drawable.ic_default_view);
                             recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
                             recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
                             isChecked[0] = false;
@@ -98,7 +99,6 @@ public class FragmentJournal extends Fragment {
             }
         });
         recyclerView = view.findViewById(R.id.journal_recycler_view);
-
         btnCreate = view.findViewById(R.id.journal_btn_create);
         btnCreate.setOnClickListener(new View.OnClickListener() {
             @Override
