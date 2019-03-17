@@ -88,6 +88,7 @@ public class ActivityAddMood extends AppCompatActivity {
         moodSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
             @Override
             public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
+                moodAnimation.setAnimation(R.raw.mood_animation_ease);
 
                 moodAnimation.setProgress(progressFloat / 100f);
                 moodProgress = progressFloat / 100f;
@@ -121,29 +122,25 @@ public class ActivityAddMood extends AppCompatActivity {
             }
         });
 
-        //final LottieAnimationView moodDoneAnimation = findViewById(R.id.add_mood_done_animation);
-
         btnDone = findViewById(R.id.add_mood_fab_done);
         btnDone.setOnClickListener(v -> {
+
             moodSeekBar.setEnabled(false);
 
-            if (moodProgress >= 0.875f) {
+            if (moodProgress >= 0.875) {
                 moodAnimation.setAnimation(R.raw.mood_005_animation);
             }
-            else if (moodProgress >= 0.625f) {
-                moodAnimation.setAnimation(R.raw.mood_005_animation);
+            else if (moodProgress >= 0.625) {
+                moodAnimation.setAnimation(R.raw.mood_004_animation);
             }
-            else if (moodProgress >= 0.375f) {
-                moodAnimation.setAnimation(R.raw.mood_005_animation);
+            else if (moodProgress >= 0.375) {
+                moodAnimation.setAnimation(R.raw.mood_003_animation);
             }
-            else if (moodProgress >= 0.125f) {
-                moodAnimation.setAnimation(R.raw.mood_005_animation);
+            else if (moodProgress >= 0.125) {
+                moodAnimation.setAnimation(R.raw.mood_002_animation);
             }
-            else if (moodProgress >= 0.0f) {
-                moodAnimation.setAnimation(R.raw.mood_005_animation);
-            }
-            else {
-                moodAnimation.setAnimation(R.raw.mood_animation_ease);
+            else if (moodProgress >= 0.0) {
+                moodAnimation.setAnimation(R.raw.mood_001_animation);
             }
 
             moodAnimation.playAnimation();
