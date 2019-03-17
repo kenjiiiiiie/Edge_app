@@ -51,10 +51,10 @@ public class JournalRecycleAdapter extends RecyclerView.Adapter<JournalRecycleAd
             public void onClick(View v) {
                 ActivityWriteJournal.write_isEdit = true;
                 ActivityWriteJournal.write_content = contentText.get(position);
+                ActivityWriteJournal.write_date_title = dateText.get(position);
                 FragmentJournal.startWriteJournal_Activity();
             }
         });
-
     }
 
     @Override

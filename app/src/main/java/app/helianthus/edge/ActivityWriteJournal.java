@@ -23,6 +23,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
     EditText write_editText;
     static boolean write_isEdit = false;
     static String write_content;
+    static String write_date_title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,16 +70,33 @@ public class ActivityWriteJournal extends AppCompatActivity {
             case R.id.journal_write_save:
                 //Save journal
                 String date_n = new SimpleDateFormat("MMMM dd, yyyy hh:mm aa", Locale.getDefault()).format(new Date());
-
                 FragmentJournal.JournalDBEntryHelper dbHelper = new FragmentJournal.JournalDBEntryHelper(this);
                 SQLiteDatabase db = dbHelper.getWritableDatabase();
-                ContentValues values = new ContentValues();
-                values.put(FragmentJournal.JournalEntry.COLUMN_ENTRY, write_editText.getText().toString());
-                values.put(FragmentJournal.JournalEntry.COLUMN_DATE_TIME, date_n);
-                long newRowId = db.insert(FragmentJournal.JournalEntry.TABLE_NAME, null, values);
+                if(write_isEdit)
+                {
+                    ContentValues values = new ContentValues();
+                    values.put(FragmentJournal.JournalEntry.COLUMN_ENTRY, write_editText.getText().toString());
+                    values.put(FragmentJournal.JournalEntry.COLUMN_DATE_TIME, date_n);
+
+                    String selection = FragmentJournal.JournalEntry.COLUMN_DATE_TIME + " LIKE ?";
+                    String[] selectionArgs = { write_date_title };
+
+                    db.update(
+                            FragmentJournal.JournalEntry.TABLE_NAME,
+                            values,
+                            selection,
+                            selectionArgs);
+                }
+                else
+                {
+                    ContentValues values = new ContentValues();
+                    values.put(FragmentJournal.JournalEntry.COLUMN_ENTRY, write_editText.getText().toString());
+                    values.put(FragmentJournal.JournalEntry.COLUMN_DATE_TIME, date_n);
+                    db.insert(FragmentJournal.JournalEntry.TABLE_NAME, null, values);
+                    FragmentJournal.recyclerView.invalidate();
+                    onBackPressed();
+                }
                 Toast.makeText(this, "Journal Saved", Toast.LENGTH_SHORT).show();
-                FragmentJournal.recyclerView.invalidate();
-                onBackPressed();
                 return true;
             default:
                 return false;
