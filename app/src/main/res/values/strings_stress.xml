@@ -138,5 +138,256 @@ Common internal causes of stress include:
 •	\nTrouble getting along with peers, such as coworkers, classmates or teachers
 </string>
     <string name="stress_05_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
-
+    <string name="stress_06_title">Improving your ability to handle stress</string>
+    <string name="stress_06_body">
+        \n<b><font size="14">GET MOVING.</font></b> Upping your activity level is one
+        tactic you can employ right now to help relieve stress and start to feel better.
+        Regular exercise can lift your mood and serve as a distraction from worries, allowing you to break out of the cycle of negative thoughts that feed stress.
+        Rhythmic exercises such as walking, running, swimming, and dancing are particularly effective, especially if you exercise mindfully (focusing your attention on the physical sensations you experience as you move).
+        \n\n<b><font size="14">CONNECT TO OTHERS.</font></b> The simple act of talking face-to-face
+        with another human can trigger hormones that relieve stress when you’re feeling agitated
+        or insecure. Even just a brief exchange of kind words or a friendly look from another
+        human being can help calm and soothe your nervous system.
+        So, spend time with people who improve your mood and don’t let your responsibilities keep you from having a social life.
+        If you don’t have any close relationships, or your relationships are the source of your stress, make it a priority to build stronger and more satisfying connections.
+        \n\n<b><font size="14">ENGAGE YOUR SENSES.</font></b>Another fast way to relieve stress
+        is by
+        engaging one
+        or more of your senses: sight, sound, taste, smell, touch, or movement.
+        The key is to find the sensory input that works for you.
+        Does listening to an uplifting song make you feel calm? Or smelling ground coffee? Or maybe petting an animal works quickly to make you feel centered? Everyone responds to sensory input a little differently, so experiment to find what works best for you.
+        \n\n<b><font size="14">LEARN TO RELAX.</font></b> You can’t completely eliminate stress
+        from your
+        life, but you can
+        control how much it affects you. Relaxation techniques such as yoga, meditation, and deep breathing activate the body’s relaxation response, a state of restfulness that is the polar opposite of the stress response. When practiced regularly, these activities can reduce your everyday stress levels and boost feelings of joy and serenity. They also increase your ability to stay calm and collected under pressure.
+        \n\n<b><font size="14">EAT A HEALTHY DIET.</font></b> The food you eat can improve or
+        worsen your
+        mood and affect your ability to cope with life\’s stressors. Eating a diet full of
+        processed and convenience food, refined carbohydrates, and sugary snacks can worsen symptoms of stress, while a diet rich in fresh fruit and vegetables, high-quality protein, and omega-3 fatty acids, can help you better cope with life’s ups and downs.
+        \n\n<b><font size="14">GET YOUR REST.</font></b> Feeling tired can increase stress by
+        causing
+        you to think
+        irrationally.At the same time, chronic stress can disrupt your sleep. Whether you’re having trouble falling asleep or staying asleep at night, there are plenty of ways to improve your sleep so you feel less stressed and more productive and emotionally balanced.
+    </string>
+    <string name="stress_06_cite">Segal, J., Smith, M., Segal, R., and Robinson, L. (November
+        2018). Stress Symptoms, Signs, and Causes. Retrieved from https://www.helpguide.org/articles/stress/stress-symptoms-signs-and-causes.htm/</string>
+    <string name="stress_07_title">5 School Stress Busting Tips</string>
+    <string name="stress_07_body">
+        No matter where you are in the school journey,these tips can help you cope with and manage the stress that comes along with it.
+        \n<b>GET PLENTY OF SLEEP.</b>
+        \nNot getting enough sleep impairs academic performance and makes it harder to get
+        through the day.
+        \n\n<b>THINK POSITIVE.</b>
+        \nResearch has shown that positive thinking may improve physical well-being, produce lower feelings of depression and produce lower levels of distress.
+        \n\n<b>HAVE A STRESS \“OUTLET.\”</b>
+        \nThis could be a social activity like going out or participating in intramural sports,
+        finding a hobby or joining a social club.
+        \n\n<b>ENGAGE IN RELAXATION TECHNIQUES.</b>
+        \nThis can include things like slowly counting to
+        ten, meditation, thinking positive thoughts, visualization or playing with a stress ball.
+        \n\n<b>TALK TO SOMEONE.</b>
+        \nSometimes just talking about what’s stressful or having someone listen to your problems
+        can drastically reduce stress.
+    </string>
+    <string name="stress_07_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_08_title">Get Help for Student Stress</string>
+    <string name="stress_08_body">
+        There are several resources available on
+        campus to help you deal with students stress. The chart below can help point you in the right direction to find help on your school\’s campus.
+        \n<b>Academic Issues</b>
+        \nYour academic or student advisor can provide advice or guidance. The on-campus academic services office should be able to arrange a tutor or other extra academic help.
+        \n\n<b>Substance Abuse</b>
+        \nThe student health center, counseling services center, or campus medical facility will have free and anonymous therapy or counseling services available.
+        \n\n<b>Eating and Weight Management</b>
+        \nThe student health services and recreation/fitness center might have fitness experts or counselors to help you.
+        \n\n<b>Time Management</b>
+        \nThe academic services office or student services office can point you in the right direction to more effectively manage your time.
+        \n\n<b>Sexual Problems</b>
+        \nThe student health center can provide physical checkups and STD/STI screenings, as well as counseling for issues sexually active students may encounter.
+        \n\n<b>Depression/Anxiety</b>
+        \nIn addition to the student health center, your school may have a counseling and psychiatric services center which can provide mental health services.
+        \n\n<b>Health Concerns</b>
+        \nStudent health services are always available to answer any health questions you might have.
+        \n\n<b>Finances</b>
+        \nThe financial aid office and student services center will have information and advice about managing money.
+        \n\n<b>Housing Issues</b>
+        \nYour resident advisor and student housing department will have procedures in place to deal with problems with roommates or living facilities.
+        \n\n<b>Problems Relaxing</b>
+        \nMany schools have a massage and/or physical therapy team which can provide services to help students unwind.
+        \n\n<b>Homesickness,Family Issues and Bereavement</b>
+        \nCounseling will be available in at least one, if not all, of the following organizations: student health services, counseling and psychiatric services center or student services center.
+    </string>
+    <string name="stress_08_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_09_title">5 Work Stress Busting Tips</string>
+    <string name="stress_09_body">
+        Every job is going to be stressful at some point. Whether you are working on a tight
+        deadline or facing a make-or-break situation, here are a few ways that you can alleviate stress, at least to some extent.
+        \n<b>MAKE THE MOST OF WORKDAY BREAKS.</b>
+        \nTake some time to cool down and take a deep
+        breath. A slow walk and deep breathing during the middle of the day can help center you.
+        \n\n<b>HAVE A PLACE TO VENT.</b>
+        \nYou might not want to discuss your work troubles
+        work coworkers, as gossip can run rampant. But have someone you can talk to outside of work who will understand your situation.
+        \n\n<b>WALK AWAY.</b>
+        \nNever let yourself become angry and lash out at
+        work – that will be detrimental to your work experience and lead to more stress. Find some way to blow off steam.
+        \n\n<b>STAY REASONABLE.</b>
+        \nThere are certain job standards you must live up
+        to, but don’t be pushed to go too far above what is reasonable for your pay grade. Never expect perfection!
+        \n\n<b>TWEAK YOUR JOB DESCRIPTION.</b>
+        \nIf you find that you are consistently doing work
+        that is not in your job description, speak to your employer about either delegating that work to someone else or compensating you fairly for it.
+    </string>
+    <string name="stress_09_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_10_title">Get Help for Career Stress</string>
+    <string name="stress_10_body">
+            <b>Employee helpline</b>
+        \nMost companies have an employee helpline meant for problems like this. The call is usually entirely confidential, and you might even be able to schedule phone sessions with a counselor.
+        \n\n<b>Financial or credit counselor</b>
+        \nIf you are worried about finances, talking to someone about money matters can help. A financial counselor might also be able to advise you on how to make the most of your salary.
+        \n\n<b>Human resources</b>
+        \nYour human resources department is there to help you with situations that seem insurmountable. They can guide you to the proper resources and possibly help you with internal issues.
+        \n\n<b>Fitness center</b>
+        \nDoes your workplace offer a fitness center? Take advantage of it during your lunch breaks or right before or after work to burn off some steam.
+        \n\n<b>Whistle-blower hotline</b>
+        \nWhen there are serious indiscretions, illegal activity and the like happening in the workplace, becoming a whistleblower might be your best bet to a better work environment.
+        \n\n<b>Fellow co-workers</b>
+        \nIf you are in a stressful work environment, how are your coworkers dealing with it? They might be able to provide you with tips on how they stay calm and cool.
+    </string>
+    <string name="stress_10_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_11_title">5 Health Conditions/Issues Stress Busting Tips</string>
+    <string name="stress_11_body">
+        When stress becomes overwhelming, it\’s time to
+        calm down. These tips can help you deal with health conditions or medical issues without blowing your top.
+        \n<b>GET ALL THE INFORMATION YOU CAN.</b>
+        \nKnowledge is power, and it can help you cope. The more you know about your condition and treatments, the more in-control you will feel.
+        \n\n<b>ENLIST HELP.</b>
+        \nWhen you are faced with a debilitating medical condition, you cannot handle it alone. Recognize that you need help, and don’t hesitate to reach out for it.
+        \n\n<b>HAVE A GOOD CRY.</b>
+        \nTrying to stay strong in the face of a serious
+        medical condition might help at first, but over time the lack of \“falling apart\” can
+        take a toll. You deserve the time to grieve the situation you are in; allow yourself to cry, scream, rant, and otherwise take out the stress before it makes you even sicker.
+        \n\n<b>MAKE PLANS.</b>
+        \nIf your medical condition will be a temporary one, consider it a wake-up call, and start planning the rest of your life accordingly. If you are facing a terminal illness, make plans for the time you have left.
+        \n\n<b>FIND A SPIRITUAL ADVISOR.</b>
+        \nEven if you are not a religious or spiritual person, finding someone who can talk to you about “what comes after” might be a helpful step to put your illness in perspective.
+    </string>
+    <string name="stress_11_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_12_title">Get help for health-related stress</string>
+    <string name="stress_12_body">
+            <b>Social workers</b>
+        \nEvery hospital or healthcare facility has a social worker on staff, or is able to reach out to one within a short period of time. The social worker can help you find resources such as support groups or financial assistance.
+        \n\n<b>Respite care</b>
+        \nThose who are taking care of a loved one can turn to respite care, a service often provided by members of the local community. This allows caregivers to take time away from the responsibility and reduce their stress level.
+        \n\n<b>Financial department</b>
+        \nContacting the billing and financial department can result in payment plans, the potential for lowered payments and other financial assistance.
+        \n\n<b>Support groups</b>
+        \nTalking to those who are going through the same issues can help alleviate stress. Support groups are available for almost everything, and not just for patients – they are good for children, caregivers, parents and more.
+        \n\n<b>Physicians and nurses</b>
+        \nThose who work in the health care field can direct you to community resources that can help with everything from getting the right medical equipment to introducing you to new physicians.
+    </string>
+    <string name="stress_12_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_13_title">Resources and Tools for Stress Management</string>
+    <string name="stress_13_body">
+        Each person has different types of stressors. What bothers one person might not bother
+        another. What seems overwhelming to one might be perfectly manageable to another. But when it comes to your particular kind of stress, you know when you feel it – and you know when it’s becoming serious.
+        \n\nThese stress reduction techniques can help anyone, no matter the situation. Whether you
+        are in a hospital bed awaiting surgery, dealing with a boss who seems to be out to get
+        you, or lonely at college while you await that next test that has you so anxious you can barely study, these tips can ease the worry you are dealing with and help you face the next hurdle with a more centered, calm mind.
+        \n\n<b>Relaxation Techniques and Tools</b>
+        \n Our expert Melissa Cohen, LCSW, has a few tips that can help ease stress. These are
+        her best options for anyone facing a stressful time, including college students, parents, employees, and more.
+        \n
+        \n1. Acknowledge your feelings and keep a journal – not a formal one but one where you can
+        keep notes and thoughts.
+        \n2. Prioritize and tackle the easiest things first. This makes the list shorter.
+        \n3. Break it down into pieces. Set realistic and manageable goals.
+        \n4. Breathe, deeply.
+        \n5. Take a break and focus on something else for a while.
+        \n6. Do something that you enjoy – draw, write a letter, cook, or call a friend
+        \n7. Workout – go for a run, a walk, or take an exercise class
+        \n8. Meditate – just 3-5 minutes can help change your perspective
+        \n9. Think positive, reframe the negative.
+        \n10. Visualize a place where you feel calm.
+    </string>
+    <string name="stress_13_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_14_title">Avoiding Stress</string>
+    <string name="stress_14_body">
+        Wouldn\’t it be nice to avoid stress?
+        Fortunately, there are some ways you can make that happen. Though there is no way to completely avoid stress, there are some ways to get a better handle on the things that cause it, how you respond to it, and what it does to you. These techniques can help you avoid stress.
+        \n<b>KNOW YOUR LIMITATIONS</b>
+        \nJumping into something you can’t handle can often
+        leave you with stress and worry. When embarking on something new, know what your limitations are, and never bite off more than you can chew.
+        \n\n<b>HAVE A GOOD SUPPORT SYSTEM</b>
+        \nWhen life gets tough, having someone to turn to
+        can help. Your support system should include family, friends, and professionals if necessary.
+        \n\n<b>UNDERSTAND YOUR TRIGGERS</b>
+        \nWhat stresses you out? Learning to avoid things
+        that make you anxious, nervous or worried can be enough to help you live a life filled with less stress.
+        \n\n<b>LEARN RELAXATION TECHNIQUES</b>
+        \nWhen stress comes calling, being able to relax
+        can help you cope with it. Take the time to learn the techniques that make most sense to you.
+        \n\n<b>MANAGE YOUR TIME</b>
+        \nPlan out your time wisely. This includes any
+        situation, including school, career, or everyday life. Make sure to plan in plenty of downtime, too.
+        \n\n<b>LEARN TO SAY NO</b>
+        \nWhen you say yes to everything, you eventually
+        become overwhelmed. Make “no” a strong part your vocabulary, and only say yes to things that will be enjoyable for you.
+        \n\n<b>EXERCISE</b>
+        \nGetting active releases hormones that can help
+        you relax, stay calm and cope with life’s stressors. Even a small amount of exercise each day can work wonders.
+        \n\n<b>BE MORE ASSERTIVE</b>
+        \nLearn to stand up for yourself and those around
+        you. Never allow yourself to be bullied, whether it’s by fellow students, coworkers, a boss or anyone else.
+    </string>
+    <string name="stress_14_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_15_title">Stress Don’ts</string>
+    <string name="stress_15_body">
+        There are very few absolutely certain things in
+        life. But when it comes to stress, there are a few things that are simply destined to cause it. These stressors are serious for anyone who deals with them, and they can lead down a road that brings the worst stress you can imagine. If you are dealing with any of these issues, getting help right away – right now – is the only appropriate response.
+        \n<b>SUBSTANCE ABUSE</b>
+        \nThough turning to drugs and alcohol might seem to relieve stress in the short term, it
+        is a recipe for disaster. The negative problems that quickly result will turn your future into a nightmare.
+        \n\n<b>ADDICTION</b>
+        \nAny sort of addiction can quickly spiral into
+        something you can’t handle. Avoid anything that might seem to be an addictive trigger for you, including substances, gambling, and the like.
+        \n\n<b>ABUSE OF ANY KIND</b>
+        \nIf you are being abused by anyone, in any way,
+        get help right now before it gets worse. Emotional, verbal, physical, sexual abuse – as well as other types – can send your stress levels off the charts.
+        \n\n<b>ISOLATION</b>
+        \nWhen you are feeling isolated for whatever
+        reason, stress builds up to the breaking point. If you are suffering alone, without a support group or support system to help you, it’s time to reach out. It might be tough, but there are people just like you who can benefit from the discussions you could have.
+    </string>
+    <string name="stress_15_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp;BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
+    <string name="stress_16_title">Good Stress/Bad Stress</string>
+    <string name="stress_16_body">
+        Remember that not all stress is bad for you. Sometimes it’s a very good thing. Stress can push you to succeed in areas that you believed were off-limits to you. It can propel you to do things that turn out to be great adventures. It can spur you to study harder, work longer hours, focus more on the things that matter, and take your good health into your own hands.
+        \n\nStress can also have a very clear-cut purpose if you are ever in a dangerous
+        situation. The “fight or flight” response is a very important biological urge that is designed to lead us out of harm’s way. For instance, the urge to run when someone begins chasing you, or the instinctual need to fight back when you are confronted with a dangerous situation are both a result of this stress response. In that way, stress is a good thing, because it keeps you safe.
+        \n\nHealthy stress might make you feel anxious or worried for a time. Imagine the stress
+        you feel when taking that big test, the one that your final grade is riding on. The stress might be tough, but it spurs you to study more, and that can drive you to a higher grade. Or imagine the worry you feel when you are struggling with a relationship issue. The worry doesn’t feel good, but it leads you to talk things through more often, and that can lead to a better place in the relationship than what you experienced before the stress took hold.
+        \n\nSo before you discount stress as being a terrible thing, think of times when it
+        spurred you on to greater things. It might help you put stress in perspective the next time you feel overwhelmed by it.
+    </string>
+    <string name="stress_16_cite">Cohen, M. (n.d.). STUDENT GUIDE TO SURVIVING STRESS
+        AND ANXIETY IN COLLEGE &amp; BEYOND. Retrieved from
+        https://www.learnpsychology.org/student-stress-anxiety-guide/?fbclid=IwAR2PRAdPxqHgnUdkWwZI6Z1Uv3dLgsEcClN19gcqhrL9pPC_94cC2vQSUVM</string>
 </resources>

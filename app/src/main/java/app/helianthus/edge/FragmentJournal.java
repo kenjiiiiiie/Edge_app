@@ -42,7 +42,6 @@ public class FragmentJournal extends Fragment {
 
     private FragmentJournalViewModel mViewModel;
     static RecyclerView recyclerView;
-    private boolean isChecked = true;
     SwipeRefreshLayout refreshLayout;
 
     private JournalDBEntryHelper dbHelper ;
@@ -51,7 +50,8 @@ public class FragmentJournal extends Fragment {
     View view;
     private MaterialButton btnCreate;
     LinearLayout emptyState;
-
+    private ViewGroup parent;
+    private boolean[] isChecked = {true};
     private ArrayList<String>journalContent, journalDate, journalPreview;
 
     public static FragmentJournal newInstance() {
@@ -62,6 +62,7 @@ public class FragmentJournal extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_journal, container, false);
+        parent = view.findViewById(R.id.journal_empty_state);
         journalDate = new ArrayList<>();
         journalContent = new ArrayList<>();
         journalPreview = new ArrayList<>();
@@ -71,6 +72,33 @@ public class FragmentJournal extends Fragment {
         context = getContext();
         Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
+        mTopToolbar.setOnMenuItemClickListener(item -> {
+
+            switch (item.getItemId()) {
+                case R.id.journal_menu_grid_toggle:
+                    if(journalDate.isEmpty() && journalContent.isEmpty() && journalPreview.isEmpty())
+                    {
+                        Toast.makeText(getContext(), "Write Something", Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        if(isChecked[0]){
+                            item.setIcon(R.drawable.ic_default_view);
+                            recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
+                            recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+                            isChecked[0] = false;
+                        }
+                        else
+                        {
+                            item.setIcon(R.drawable.ic_grid_view);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+                            recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
+                            isChecked[0] = true;
+                        }
+                    }
+            }
+            return false;
+        });
 
         recyclerView = view.findViewById(R.id.journal_recycler_view);
 
@@ -86,16 +114,11 @@ public class FragmentJournal extends Fragment {
         emptyState = view.findViewById(R.id.journal_empty_state);
 
         refreshLayout = view.findViewById(R.id.journal_swipe_refresh);
-        refreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                Log.i("LOG_TAG", "Refreshing");
-            }
-        });
+        refreshLayout.setOnRefreshListener(() -> Log.i("LOG_TAG", "Refreshing"));
 
         //Read Database
         String[] projection = {JournalEntry._ID, JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
-        String sortOrder = JournalEntry.COLUMN_DATE_TIME + " ASC";
+        String sortOrder = JournalEntry.COLUMN_DATE_TIME + " DESC";
         Cursor cursor = database.query(
                 JournalEntry.TABLE_NAME,
                 projection,
@@ -137,7 +160,7 @@ public class FragmentJournal extends Fragment {
         // TODO: Use the ViewModel
     }
 
-    @Override
+    /*@Override
     public void onPrepareOptionsMenu(Menu menu) {
         MenuItem gridCheck = menu.findItem(R.id.journal_menu_grid_toggle);
         gridCheck.setChecked(isChecked);
@@ -167,7 +190,7 @@ public class FragmentJournal extends Fragment {
             default:
                 return false;
         }
-    }
+    }**/
 
     static class JournalEntry implements BaseColumns {
         static final String TABLE_NAME = "journal_entry";
