@@ -106,11 +106,11 @@ public class FragmentHome extends Fragment {
         }
 
         List<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0f, (float) mood_count[0]));
+        entries.add(new BarEntry(1f, (float) mood_count[0]));
         entries.add(new BarEntry(2f, (float) mood_count[1]));
-        entries.add(new BarEntry(4f, (float) mood_count[2]));
-        entries.add(new BarEntry(6f, (float) mood_count[3]));
-        entries.add(new BarEntry(8f, (float) mood_count[4]));
+        entries.add(new BarEntry(3f, (float) mood_count[2]));
+        entries.add(new BarEntry(4f, (float) mood_count[3]));
+        entries.add(new BarEntry(5f, (float) mood_count[4]));
 
         BarDataSet set = new BarDataSet(entries, "BarDataSet");
         BarData data = new BarData(set);
