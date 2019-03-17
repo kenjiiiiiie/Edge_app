@@ -25,25 +25,6 @@ public class ActivitySplashScreen extends AppCompatActivity {
             view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
         }
 
-        /* new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-
-                SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getBaseContext());
-                boolean previouslyStarted = prefs.getBoolean(getString(R.string.first_launch), false);
-                if (!previouslyStarted) {
-                    SharedPreferences.Editor edit = prefs.edit();
-                    edit.putBoolean(getString(R.string.first_launch), Boolean.TRUE).apply();
-                    ActivitySplashScreen.this.startActivity(new Intent(ActivitySplashScreen.this, ActivityOnboarding.class));
-                    ActivitySplashScreen.this.finish();
-                }
-                else{
-                    ActivitySplashScreen.this.startActivity(new Intent(ActivitySplashScreen.this, MainActivity.class));
-                    ActivitySplashScreen.this.finish();
-                }
-            }
-        }, 2500); */
-
         LottieAnimationView animSplash = findViewById(R.id.splash_edge_animation);
         animSplash.addAnimatorListener(new Animator.AnimatorListener() {
             @Override
