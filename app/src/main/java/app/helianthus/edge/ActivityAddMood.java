@@ -27,7 +27,7 @@ public class ActivityAddMood extends AppCompatActivity {
     public static final String EXTRA_CIRCULAR_REVEAL_Y = "EXTRA_CIRCULAR_REVEAL_Y";
 
     View rootLayout;
-
+    BubbleSeekBar moodSeekBar;
     private int revealX;
     private int revealY;
     float moodProgress = 0.50f;
@@ -83,7 +83,7 @@ public class ActivityAddMood extends AppCompatActivity {
 
         final LottieAnimationView moodAnimation = findViewById(R.id.add_mood_animation);
 
-        BubbleSeekBar moodSeekBar = findViewById(R.id.add_mood_seek_bar);
+        moodSeekBar = findViewById(R.id.add_mood_seek_bar);
         moodLevel = findViewById(R.id.add_mood_level_text);
         moodSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
             @Override
@@ -122,41 +122,44 @@ public class ActivityAddMood extends AppCompatActivity {
         });
 
         btnDone = findViewById(R.id.add_mood_fab_done);
-        btnDone.setOnClickListener(v -> {
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-            moodSeekBar.setEnabled(false);
+                moodSeekBar.setEnabled(false);
 
-            if (moodProgress >= 0.875) {
-                moodAnimation.setAnimation(R.raw.mood_005_animation);
-            }
-            else if (moodProgress >= 0.625) {
-                moodAnimation.setAnimation(R.raw.mood_004_animation);
-            }
-            else if (moodProgress >= 0.375) {
-                moodAnimation.setAnimation(R.raw.mood_003_animation);
-            }
-            else if (moodProgress >= 0.125) {
-                moodAnimation.setAnimation(R.raw.mood_002_animation);
-            }
-            else if (moodProgress >= 0.0) {
-                moodAnimation.setAnimation(R.raw.mood_001_animation);
-            }
-
-            moodAnimation.playAnimation();
-            moodAnimation.addAnimatorListener(new Animator.AnimatorListener() {
-                @Override
-                public void onAnimationStart(Animator animation) { }
-                @Override
-                public void onAnimationEnd(Animator animation) {
-                    unRevealActivity();
+                if (moodProgress >= 0.875) {
+                    moodAnimation.setAnimation(R.raw.mood_005_animation);
+                } else if (moodProgress >= 0.625) {
+                    moodAnimation.setAnimation(R.raw.mood_004_animation);
+                } else if (moodProgress >= 0.375) {
+                    moodAnimation.setAnimation(R.raw.mood_003_animation);
+                } else if (moodProgress >= 0.125) {
+                    moodAnimation.setAnimation(R.raw.mood_002_animation);
+                } else if (moodProgress >= 0.0) {
+                    moodAnimation.setAnimation(R.raw.mood_001_animation);
                 }
-                @Override
-                public void onAnimationCancel(Animator animation) { }
 
-                @Override
-                public void onAnimationRepeat(Animator animation) { }
-            });
+                moodAnimation.playAnimation();
+                moodAnimation.addAnimatorListener(new Animator.AnimatorListener() {
+                    @Override
+                    public void onAnimationStart(Animator animation) {
+                    }
 
+                    @Override
+                    public void onAnimationEnd(Animator animation) {
+                        unRevealActivity();
+                    }
+
+                    @Override
+                    public void onAnimationCancel(Animator animation) {
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animator animation) {
+                    }
+                });
+            }
         });
 
     }

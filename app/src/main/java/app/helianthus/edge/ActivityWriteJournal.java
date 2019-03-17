@@ -86,8 +86,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
                     String selection = FragmentJournal.JournalEntry.COLUMN_DATE_TIME + " LIKE ?";
                     String[] selectionArgs = { write_date_title };
 
-                    db.update(
-                            FragmentJournal.JournalEntry.TABLE_NAME,
+                    db.update(FragmentJournal.JournalEntry.TABLE_NAME,
                             values,
                             selection,
                             selectionArgs);
