@@ -73,7 +73,6 @@ public class FragmentJournal extends Fragment {
         Toolbar mTopToolbar = view.findViewById(R.id.journal_toolbar);
         mTopToolbar.inflateMenu(R.menu.journal_app_bar_menu);
         mTopToolbar.setOnMenuItemClickListener(item -> {
-
             switch (item.getItemId()) {
                 case R.id.journal_menu_grid_toggle:
                     if(journalDate.isEmpty() && journalContent.isEmpty() && journalPreview.isEmpty())
@@ -159,38 +158,6 @@ public class FragmentJournal extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(FragmentJournalViewModel.class);
         // TODO: Use the ViewModel
     }
-
-    /*@Override
-    public void onPrepareOptionsMenu(Menu menu) {
-        MenuItem gridCheck = menu.findItem(R.id.journal_menu_grid_toggle);
-        gridCheck.setChecked(isChecked);
-        //return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.journal_menu_grid_toggle:
-                if(isChecked){
-                    isChecked = !item.isChecked();
-                    item.setChecked(isChecked);
-                }
-                else
-                {
-                    recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-                    recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
-                    isChecked = !item.isChecked();
-                    item.setChecked(isChecked);
-                }
-                Toast.makeText(getContext(), "Clicked grid view", Toast.LENGTH_SHORT).show();
-                recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2));
-                recyclerView.setAdapter(new JournalRecycleAdapter(journalDate, journalContent, journalPreview));
-
-                return true;
-            default:
-                return false;
-        }
-    }**/
 
     static class JournalEntry implements BaseColumns {
         static final String TABLE_NAME = "journal_entry";

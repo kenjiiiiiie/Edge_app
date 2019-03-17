@@ -2,6 +2,7 @@ package app.helianthus.edge;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -55,7 +56,6 @@ public class FragmentHome extends Fragment {
 
         Toolbar mTopToolbar = view.findViewById(R.id.home_toolbar);
         mTopToolbar.inflateMenu(R.menu.home_app_bar_menu);
-
         String date_n = new SimpleDateFormat("MMMM dd, yyyy", Locale.getDefault()).format(new Date());
         TextView date = view.findViewById(R.id.home_date);
         date.setText(date_n);

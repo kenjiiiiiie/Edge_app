@@ -79,5 +79,4 @@ public class ActivityStress extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
-
 }
