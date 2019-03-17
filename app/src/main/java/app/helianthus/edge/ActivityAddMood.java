@@ -88,7 +88,6 @@ public class ActivityAddMood extends AppCompatActivity {
         moodSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListener() {
             @Override
             public void onProgressChanged(BubbleSeekBar bubbleSeekBar, int progress, float progressFloat, boolean fromUser) {
-                moodAnimation.setAnimation(R.raw.mood_animation_ease);
 
                 moodAnimation.setProgress(progressFloat / 100f);
                 moodProgress = progressFloat / 100f;
