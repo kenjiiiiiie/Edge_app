@@ -2,7 +2,9 @@ package app.helianthus.edge;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -34,6 +36,12 @@ public class ActivityAddMood extends AppCompatActivity {
     TextView moodLevel;
 
     MaterialButton btnDone;
+
+    ContentValues values;
+    SQLiteDatabase db;
+    String selection;
+    String[] selectionArgs = { String.valueOf(FragmentHome.mood_id) };
+    int mood_new_count[] = FragmentHome.mood_count;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +115,6 @@ public class ActivityAddMood extends AppCompatActivity {
                 else if (moodProgress >= 0.0f) {
                     moodLevel.setText(getString(R.string.add_mood_level_text_001));
                 }
-
             }
 
             @Override
@@ -120,6 +127,13 @@ public class ActivityAddMood extends AppCompatActivity {
 
             }
         });
+
+        FragmentHome.MoodDBEntryHelper dbHelper = new FragmentHome.MoodDBEntryHelper(this);
+        db = dbHelper.getWritableDatabase();
+
+        values = new ContentValues();
+
+        selection = FragmentHome.MoodCount._ID + " LIKE ?";
 
         btnDone = findViewById(R.id.add_mood_fab_done);
         btnDone.setOnClickListener(new View.OnClickListener() {
@@ -140,6 +154,37 @@ public class ActivityAddMood extends AppCompatActivity {
                     moodAnimation.setAnimation(R.raw.mood_001_animation);
                 }
 
+                if(moodProgress == 0.0)
+                {
+                    mood_new_count[0]++;
+                    values.put(FragmentHome.MoodCount.COLUMN_MOOD_1, mood_new_count[0]);
+                }
+                else if(moodProgress == 0.25)
+                {
+                    mood_new_count[1]++;
+                    values.put(FragmentHome.MoodCount.COLUMN_MOOD_2, mood_new_count[1]);
+                }
+                else if(moodProgress == 0.50)
+                {
+                    mood_new_count[2]++;
+                    values.put(FragmentHome.MoodCount.COLUMN_MOOD_3, mood_new_count[2]);
+                }
+                else if(moodProgress == 0.75)
+                {
+                    mood_new_count[3]++;
+                    values.put(FragmentHome.MoodCount.COLUMN_MOOD_4, mood_new_count[3]);
+                }
+                else if(moodProgress == 1.00)
+                {
+                    mood_new_count[4]++;
+                    values.put(FragmentHome.MoodCount.COLUMN_MOOD_5, mood_new_count[4]);
+                }
+
+                db.update(FragmentHome.MoodCount.TABLE_NAME,
+                        values,
+                        selection,
+                        selectionArgs);
+
                 moodAnimation.playAnimation();
                 moodAnimation.addAnimatorListener(new Animator.AnimatorListener() {
                     @Override
@@ -159,6 +204,7 @@ public class ActivityAddMood extends AppCompatActivity {
                     public void onAnimationRepeat(Animator animation) {
                     }
                 });
+
             }
         });
 

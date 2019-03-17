@@ -90,6 +90,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
                             values,
                             selection,
                             selectionArgs);
+                    onBackPressed();
                 }
                 else
                 {
@@ -104,6 +105,7 @@ public class ActivityWriteJournal extends AppCompatActivity {
                 return true;
             case android.R.id.home:
                 write_isEdit = false;
+                onBackPressed();
                 return false;
             default:
                 return false;
@@ -114,5 +116,6 @@ public class ActivityWriteJournal extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         write_isEdit = false;
+        MainActivity.from_write_journal = true;
     }
 }

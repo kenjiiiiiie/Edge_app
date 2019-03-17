@@ -28,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
 
     FloatingActionButton fabAddMood;
 
+    Boolean from_mood = false;
+    static Boolean from_write_journal = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
         ActivityCompat.startActivity(this, intent, options.toBundle());
         overridePendingTransition(R.anim.anim_slide_up,R.anim.anim_slide_down);
+        from_mood = true;
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
@@ -113,4 +117,24 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(from_mood)
+        {
+            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.detach(fragmentHome);
+            ft.attach(fragmentHome);
+            ft.commit();
+            from_mood = false;
+        }
+        else if (from_write_journal)
+        {
+            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.detach(fragmentJournal);
+            ft.attach(fragmentJournal);
+            ft.commit();
+            from_write_journal = false;
+        }
+    }
 }

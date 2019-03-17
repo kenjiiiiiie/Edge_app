@@ -1,6 +1,12 @@
 package app.helianthus.edge;
 
+import android.content.ContentValues;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +36,11 @@ public class FragmentHome extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<GameModel> imageModelArrayList;
     private GameAdapter adapter;
+    private MoodDBEntryHelper dbHelper ;
+    private SQLiteDatabase database;
+
+    static int mood_count[] = new int[5];
+    static int mood_id;
 
     BarChart barChart;
 
@@ -56,15 +67,50 @@ public class FragmentHome extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
 
-        barChart = (BarChart) view.findViewById(R.id.mood_bar_chart);
+        barChart = view.findViewById(R.id.mood_bar_chart);
+
+        dbHelper = new MoodDBEntryHelper(getContext());
+        database = dbHelper.getReadableDatabase();
+
+        String[] projection = {MoodCount._ID, MoodCount.COLUMN_MOOD_1, MoodCount.COLUMN_MOOD_2, MoodCount.COLUMN_MOOD_3, MoodCount.COLUMN_MOOD_4, MoodCount.COLUMN_MOOD_5 };
+        String sortOrder = MoodCount._ID + " ASC";
+        Cursor cursor = database.query(
+                MoodCount.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                sortOrder
+        );
+
+        if(cursor.getCount() <= 0)
+        {
+            ContentValues values = new ContentValues();
+            values.put(MoodCount.COLUMN_MOOD_1, 0);
+            values.put(MoodCount.COLUMN_MOOD_2, 0);
+            values.put(MoodCount.COLUMN_MOOD_3, 0);
+            values.put(MoodCount.COLUMN_MOOD_4, 0);
+            values.put(MoodCount.COLUMN_MOOD_5, 0);
+            database.insert(MoodCount.TABLE_NAME, null, values);
+        }
+
+        while(cursor.moveToNext())
+        {
+            mood_id = cursor.getInt(cursor.getColumnIndexOrThrow(MoodCount._ID));
+            mood_count[0] = cursor.getInt(cursor.getColumnIndexOrThrow(MoodCount.COLUMN_MOOD_1));
+            mood_count[1] = cursor.getInt(cursor.getColumnIndexOrThrow(MoodCount.COLUMN_MOOD_2));
+            mood_count[2] = cursor.getInt(cursor.getColumnIndexOrThrow(MoodCount.COLUMN_MOOD_3));
+            mood_count[3] = cursor.getInt(cursor.getColumnIndexOrThrow(MoodCount.COLUMN_MOOD_4));
+            mood_count[4] = cursor.getInt(cursor.getColumnIndexOrThrow(MoodCount.COLUMN_MOOD_5));
+        }
 
         List<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0f, 30f));
-        entries.add(new BarEntry(1f, 80f));
-        entries.add(new BarEntry(2f, 60f));
-        entries.add(new BarEntry(3f, 50f));
-        entries.add(new BarEntry(5f, 70f));
-        entries.add(new BarEntry(6f, 60f));
+        entries.add(new BarEntry(0f, (float) mood_count[0]));
+        entries.add(new BarEntry(2f, (float) mood_count[1]));
+        entries.add(new BarEntry(4f, (float) mood_count[2]));
+        entries.add(new BarEntry(6f, (float) mood_count[3]));
+        entries.add(new BarEntry(8f, (float) mood_count[4]));
 
         BarDataSet set = new BarDataSet(entries, "BarDataSet");
         BarData data = new BarData(set);
@@ -97,4 +143,43 @@ public class FragmentHome extends Fragment {
         // TODO: Use the ViewModel
     }
 
+    static class MoodCount implements BaseColumns {
+        static final String TABLE_NAME = "mood_count";
+        static final String COLUMN_MOOD_1 = "mood1";
+        static final String COLUMN_MOOD_2 = "mood2";
+        static final String COLUMN_MOOD_3 = "mood3";
+        static final String COLUMN_MOOD_4 = "mood4";
+        static final String COLUMN_MOOD_5 = "mood5";
+    }
+
+    private static final String SQL_CREATE_ENTRIES = "CREATE TABLE " + MoodCount.TABLE_NAME + " (" +
+            MoodCount._ID + " INTEGER PRIMARY KEY, " +
+            MoodCount.COLUMN_MOOD_1 + " INT, " +
+            MoodCount.COLUMN_MOOD_2 + " INT, " +
+            MoodCount.COLUMN_MOOD_3 + " INT, " +
+            MoodCount.COLUMN_MOOD_4 + " INT, " +
+            MoodCount.COLUMN_MOOD_5 + " INT" +
+            ")";
+
+    private static final String SQL_DELETE_ENTRIES =
+            "DROP TABLE IF EXISTS " + MoodCount.TABLE_NAME;
+
+    public static class MoodDBEntryHelper extends SQLiteOpenHelper {
+        static final int DATABASE_VERSION = 1;
+        static final String DATABASE_NAME = "Mood.db";
+
+        MoodDBEntryHelper(Context context) {
+            super(context, DATABASE_NAME, null, DATABASE_VERSION);
+        }
+        public void onCreate(SQLiteDatabase db) {
+            db.execSQL(SQL_CREATE_ENTRIES);
+        }
+        public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            db.execSQL(SQL_DELETE_ENTRIES);
+            onCreate(db);
+        }
+        public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+            onUpgrade(db, oldVersion, newVersion);
+        }
+    }
 }
