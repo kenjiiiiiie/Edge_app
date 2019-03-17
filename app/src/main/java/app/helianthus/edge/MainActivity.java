@@ -122,18 +122,12 @@ public class MainActivity extends AppCompatActivity {
         super.onResume();
         if(from_mood)
         {
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.detach(fragmentHome);
-            ft.attach(fragmentHome);
-            ft.commit();
+            getSupportFragmentManager().beginTransaction().detach(fragmentHome).attach(fragmentHome).commit();
             from_mood = false;
         }
         else if (from_write_journal)
         {
-            final FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.detach(fragmentJournal);
-            ft.attach(fragmentJournal);
-            ft.commit();
+            getSupportFragmentManager().beginTransaction().detach(fragmentJournal).attach(fragmentJournal).commit();
             from_write_journal = false;
         }
     }

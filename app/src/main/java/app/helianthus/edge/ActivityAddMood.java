@@ -254,7 +254,7 @@ public class ActivityAddMood extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                unRevealActivity();
+                onBackPressed();
                 return false;
         }
         return super.onOptionsItemSelected(item);
