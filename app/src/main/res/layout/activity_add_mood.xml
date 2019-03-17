@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/add_mood_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -24,22 +23,22 @@
             android:layout_width="280dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:text="@string/add_mood_hero_text"
-            android:gravity="center"
             android:fontFamily="@font/poppins"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"/>
+            android:gravity="center"
+            android:text="@string/add_mood_hero_text"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4" />
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/add_mood_animation"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1"
             android:layout_marginBottom="16dp"
-            app:lottie_rawRes="@raw/mood_animation_ease"
+            android:layout_weight="1"
             android:scaleType="centerInside"
-            app:lottie_progress="0.5"
             app:lottie_autoPlay="false"
-            app:lottie_loop="false"/>
+            app:lottie_loop="false"
+            app:lottie_progress="0.5"
+            app:lottie_rawRes="@raw/mood_animation_ease" />
 
         <com.xw.repo.BubbleSeekBar
             android:id="@+id/add_mood_seek_bar"
@@ -47,40 +46,40 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
-            app:bsb_min="0"
-            app:bsb_max="100"
-            app:bsb_progress="50"
-            app:bsb_is_float_type="true"
+            app:bsb_auto_adjust_section_mark="true"
             app:bsb_hide_bubble="true"
-            app:bsb_section_count="4"
-            app:bsb_track_color="@color/colorPrimaryDarker"
-            app:bsb_track_size="2dp"
+            app:bsb_is_float_type="true"
+            app:bsb_max="100"
+            app:bsb_min="0"
+            app:bsb_progress="50"
             app:bsb_second_track_color="@color/colorGreenA200"
             app:bsb_second_track_size="2dp"
+            app:bsb_section_count="4"
+            app:bsb_show_section_mark="true"
             app:bsb_thumb_color="@color/colorAccent"
             app:bsb_thumb_radius="6dp"
             app:bsb_thumb_radius_on_dragging="8dp"
-            app:bsb_show_section_mark="true"
             app:bsb_touch_to_seek="true"
-            app:bsb_auto_adjust_section_mark="true"/>
+            app:bsb_track_color="@color/colorPrimaryDarker"
+            app:bsb_track_size="2dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/add_mood_fab_done"
+            style="@style/Widget.MaterialComponents.Button.Icon"
             android:layout_width="wrap_content"
             android:layout_height="60dp"
+            android:layout_gravity="bottom|center_horizontal"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="18dp"
-            android:layout_gravity="bottom|center_horizontal"
+            android:fontFamily="@font/poppins_semibold"
             android:paddingStart="12dp"
             android:paddingEnd="20dp"
-            style="@style/Widget.MaterialComponents.Button.Icon"
             android:text="@string/add_mood_done"
-            android:fontFamily="@font/poppins_semibold"
             android:textAllCaps="false"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
             app:cornerRadius="32dp"
             app:icon="@drawable/ic_done"
-            app:iconPadding="12dp"/>
+            app:iconPadding="12dp" />
 
     </LinearLayout>
 
@@ -95,8 +94,8 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:gravity="center"
-            app:contentInsetStart="0dp"
             app:contentInsetEnd="0dp"
+            app:contentInsetStart="0dp"
             app:popupTheme="@style/ThemeOverlay.MaterialComponents.Light">
 
             <TextView
@@ -104,11 +103,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
-                android:text="@string/add_mood_title"
-                android:gravity="center_vertical"
                 android:fontFamily="@font/poppins_semibold"
-                android:textColor="@color/colorOnLightPrimary"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"/>
+                android:gravity="center_vertical"
+                android:text="@string/add_mood_title"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/colorOnLightPrimary" />
 
         </androidx.appcompat.widget.Toolbar>
 

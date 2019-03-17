@@ -95,7 +95,7 @@ public class FragmentJournal extends Fragment {
 
         //Read Database
         String[] projection = {JournalEntry._ID, JournalEntry.COLUMN_DATE_TIME, JournalEntry.COLUMN_ENTRY};
-        String sortOrder = JournalEntry.COLUMN_DATE_TIME + " DESC";
+        String sortOrder = JournalEntry.COLUMN_DATE_TIME + " ASC";
         Cursor cursor = database.query(
                 JournalEntry.TABLE_NAME,
                 projection,

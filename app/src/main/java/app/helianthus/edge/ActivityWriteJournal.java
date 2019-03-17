@@ -49,6 +49,11 @@ public class ActivityWriteJournal extends AppCompatActivity {
             write_title.setText("");
             write_editText.setText(write_content);
         }
+        else
+        {
+            write_title.setText(getString(R.string.journal_write_title));
+            write_editText.setText("");
+        }
     }
 
     @Override
@@ -80,6 +85,9 @@ public class ActivityWriteJournal extends AppCompatActivity {
                 FragmentJournal.recyclerView.invalidate();
                 onBackPressed();
                 return true;
+            case android.R.id.home:
+                write_isEdit = false;
+                return false;
             default:
                 return false;
         }
