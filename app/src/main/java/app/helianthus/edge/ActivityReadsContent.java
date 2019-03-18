@@ -22,6 +22,17 @@ public class ActivityReadsContent extends AppCompatActivity {
         reads_cite = findViewById(R.id.reads_cite);
 
         btnNext = findViewById(R.id.btnNext);
+        btnPrevious = findViewById(R.id.btnPrevious);
+        btnNextChapter = findViewById(R.id.btnNextChapter);
+
+        if(positon_arr>0)
+        {
+            btnNext.setVisibility(View.VISIBLE);
+            btnPrevious.setVisibility(View.VISIBLE);
+            btnNextChapter.setText("PREVIOUS CHAPTER");
+            btnNextChapter.setVisibility(View.INVISIBLE);
+        }
+
         btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -42,7 +53,6 @@ public class ActivityReadsContent extends AppCompatActivity {
 
         });
 
-        btnPrevious = findViewById(R.id.btnPrevious);
         btnPrevious.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -62,7 +72,6 @@ public class ActivityReadsContent extends AppCompatActivity {
             }
         });
 
-        btnNextChapter = findViewById(R.id.btnNextChapter);
         btnNextChapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,8 +101,5 @@ public class ActivityReadsContent extends AppCompatActivity {
         reads_title.setText(title_arr[positon_arr]);
         reads_body.setText(body_arr[positon_arr]);
         reads_cite.setText(cite_arr[positon_arr]);
-
-
-
     }
 }

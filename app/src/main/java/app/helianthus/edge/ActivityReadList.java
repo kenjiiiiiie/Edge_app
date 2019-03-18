@@ -23,7 +23,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class ActivityReadList extends AppCompatActivity {
-    static Context context;
 
     CollapsingToolbarLayout collapsingToolbarLayout;
 
@@ -42,7 +41,6 @@ public class ActivityReadList extends AppCompatActivity {
 
         setContentView(R.layout.activity_read_list);
 
-        context = getApplicationContext();
         View view = findViewById(R.id.reads_list_root);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR);
@@ -136,10 +134,5 @@ public class ActivityReadList extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(readRecycleAdapter);
-    }
-
-    static void startWriteJournal_Activity()
-    {
-        context.startActivity(new Intent(context, ActivityWriteJournal.class));
     }
 }

@@ -29,8 +29,7 @@
                 android:textAllCaps="false"
                 android:fontFamily="@font/poppins_semibold"
                 android:textColor="@color/colorOnLightPrimary"
-                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
-                android:drawableStart=""/>
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Button"/>
 
         </LinearLayout>
 

@@ -2,6 +2,7 @@ package app.helianthus.edge;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -15,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 public class FragmentReads extends Fragment {
+    static Context context;
 
     private FragmentReadsViewModel mViewModel;
     private LinearLayout cardStress, cardAnxiety, cardDepression;
@@ -31,6 +33,8 @@ public class FragmentReads extends Fragment {
         cardStress = view.findViewById(R.id.reads_card_stress);
         cardAnxiety = view.findViewById(R.id.reads_card_anxiety);
         cardDepression = view.findViewById(R.id.reads_card_depression);
+
+        context = getContext();
 
         cardStress.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,5 +71,10 @@ public class FragmentReads extends Fragment {
         super.onActivityCreated(savedInstanceState);
         mViewModel = ViewModelProviders.of(this).get(FragmentReadsViewModel.class);
         // TODO: Use the ViewModel
+    }
+
+    static void startWriteJournal_Activity()
+    {
+        context.startActivity(new Intent(context, ActivityReadsContent.class));
     }
 }
