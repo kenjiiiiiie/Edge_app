@@ -48,7 +48,10 @@ public class ReadRecycleAdapter extends RecyclerView.Adapter<ReadRecycleAdapter.
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                ActivityReadsContent.body_arr = content;
+                ActivityReadsContent.title_arr = title;
+                ActivityReadsContent.cite_arr = cite;
+                ActivityReadsContent.positon_arr = position;
                 ActivityReadList.startWriteJournal_Activity();
             }
         });

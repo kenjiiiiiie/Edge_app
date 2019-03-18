@@ -1,12 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     tools:context=".ActivityReadsContent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="?attr/actionBarSize"
+            android:layout_marginBottom="?attr/actionBarSize"
+            android:background="@android:color/white"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:padding="16dp">
+                <TextView
+                    android:id="@+id/reads_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text=""
+                    android:textColor="@color/colorAccent"
+                    android:textSize="24sp" />
+                <TextView
+                    android:id="@+id/reads_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@color/colorOnLightPrimary"
+                    android:textSize="13sp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/poppins"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="2dp"
+                    android:background="@color/colorOnLightStroke"
+                    />
+                <TextView
+                    android:id="@+id/reads_cite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text=""
+                    android:fontFamily="@font/poppins"
+                    android:textSize="8sp"
+                    android:layout_gravity="center"/>
 
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </FrameLayout>
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/appbar"
+        style="@style/Widget.MaterialComponents.BottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_gravity="bottom"
+        android:background="@color/colorPrimary"
+        app:fabAlignmentMode="center"
+        app:fabCradleMargin="0dp"
+        app:fabCradleRoundedCornerRadius="0dp">
+        <Button
+            android:id="@+id/btnNext"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:fontFamily="@font/poppins_semibold"
+            android:visibility="invisible"
+            android:minWidth="64dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="12sp"
+            android:text="Next"
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/ic_skip_next_24"
+            android:drawableTint="@color/colorAccent"
+            android:backgroundTint="@color/colorOnLightStroke"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+        <Button
+            android:id="@+id/btnPrevious"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="start"
+            android:fontFamily="@font/poppins_semibold"
+            android:visibility="invisible"
+            android:minWidth="64dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textSize="12sp"
+            android:text="Previous"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_skip_previous_24"
+            android:drawableTint="@color/colorAccent"
+            android:backgroundTint="@color/colorOnLightStroke"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
 
+        <Button
+            android:id="@+id/btnNextChapter"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:layout_gravity="center"
+            android:fontFamily="@font/poppins_semibold"
+            android:minWidth="64dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:text="Next"
+            android:background="@android:color/transparent"
+            android:drawableEnd="@drawable/ic_skip_next_24"
+            android:drawableTint="@color/colorAccent"
+            android:backgroundTint="@color/colorOnLightStroke"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Button" />
+    </com.google.android.material.bottomappbar.BottomAppBar>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
