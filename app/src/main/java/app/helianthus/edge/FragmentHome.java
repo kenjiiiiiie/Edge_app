@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.Game2.Stress.Stress_Game;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -42,6 +43,7 @@ public class FragmentHome extends Fragment {
     private MoodDBEntryHelper dbHelper ;
     private SQLiteDatabase database;
 
+    static Context context;
     static int mood_count[] = new int[5];
     static int mood_id;
 
@@ -49,13 +51,13 @@ public class FragmentHome extends Fragment {
 
     private int[] myImageList = new int[]{R.drawable.img_game_stress, R.drawable.img_game_anxiety
             , R.drawable.img_game_depression};
-    private String[] myImageNameList = new String[]{"Decide", "Protect", "Avoid"};
+    private String[] myImageNameList = new String[]{"Decide", "Coming Soon!!!", "Coming Soon!!!"};
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        context = getContext();
         Toolbar mTopToolbar = view.findViewById(R.id.home_toolbar);
         mTopToolbar.inflateMenu(R.menu.home_app_bar_menu);
 
@@ -78,7 +80,7 @@ public class FragmentHome extends Fragment {
 
         recyclerView  = view.findViewById(R.id.home_mini_games_recyclerview);
         imageModelArrayList = gameItems();
-        adapter = new GameAdapter(getContext(), imageModelArrayList);
+        adapter = new GameAdapter(getContext(), imageModelArrayList, myImageNameList);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL, false));
@@ -208,4 +210,18 @@ public class FragmentHome extends Fragment {
                 return false;
         }
     }
+
+    static void startAnxiety()
+    {
+        //context.startActivity(new Intent(context, Anxiety_Game.class));
+    }
+    static void startStress()
+    {
+        context.startActivity(new Intent(context, Stress_Game.class));
+    }
+    static void startDepress()
+    {
+        //context.startActivity(new Intent(context, Depression_Game.class));
+    }
 }
+

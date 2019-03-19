@@ -24,7 +24,7 @@ public class FragmentHelplines extends Fragment {
     private MaterialButton btn_call, btn_message;
     private ConstraintLayout btn_link1, btn_link2;
     private String url1 = "https://www.pmha.org.ph/";
-    private String url2 = "http://ppa.philpsych.ph/";
+    private String url2 = "https://ppa.philpsych.ph/";
 
     public static FragmentHelplines newInstance() {
         return new FragmentHelplines();

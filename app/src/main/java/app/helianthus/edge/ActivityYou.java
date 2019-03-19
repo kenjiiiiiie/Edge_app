@@ -6,6 +6,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.MenuItem;
@@ -26,7 +27,7 @@ public class ActivityYou extends AppCompatActivity {
     SharedPreferences.Editor edit;
     MaterialButton changeProfile;
     int image_id;
-
+    MaterialButton sendFeedback, aboutEdge;
     static boolean from_setProfile = false;
 
     static int profile_image_id;
@@ -40,6 +41,24 @@ public class ActivityYou extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_you);
 
+        sendFeedback= findViewById(R.id.sendFeedback);
+        aboutEdge= findViewById(R.id.aboutPage);
+        aboutEdge.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https" +
+                        "://kenjiiiiiie.github.io/helianthus/about.html")));
+
+            }
+        });
+        sendFeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Intent.ACTION_VIEW).setData(Uri.parse("https" +
+                        "://kenjiiiiiie.github.io/helianthus/contact.html")));
+
+            }
+        });
         changeProfile = findViewById(R.id.btnChangeProfile);
         changeProfile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,18 +79,26 @@ public class ActivityYou extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.you_save:
                         //Save journal
-                        int user_age = Integer.parseInt(you_age.getText().toString());
-                        if(user_age >= 14 && user_age <= 100)
+                        try
                         {
-                            edit.putInt(getString(R.string.image_id), drawable_avatar_id[profile_image_id]).apply();
-                            edit.putString(getString(R.string.name), you_name.getText().toString()).apply();
-                            edit.putString(getString(R.string.age), you_age.getText().toString()).apply();
-                            Toast.makeText(ActivityYou.this, "Saved!", Toast.LENGTH_SHORT).show();
-                            finish();
+                            int user_age = Integer.parseInt(you_age.getText().toString());
+                            if(user_age >= 14 && user_age <= 100)
+                            {
+                                edit.putInt(getString(R.string.image_id), drawable_avatar_id[profile_image_id]).apply();
+                                edit.putString(getString(R.string.name), you_name.getText().toString()).apply();
+                                edit.putString(getString(R.string.age), you_age.getText().toString()).apply();
+                                Toast.makeText(ActivityYou.this, "Saved!", Toast.LENGTH_SHORT).show();
+                                finish();
+                            }
+                            else
+                            {
+                                Toast.makeText(ActivityYou.this, "Age should between 14 to 100", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else
+                        catch (Exception e)
                         {
-                            Toast.makeText(ActivityYou.this, "Age should between 14 to 100", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ActivityYou.this, "Empty field is not allowed",
+                                    Toast.LENGTH_SHORT).show();
                         }
                     default:
                         return false;
